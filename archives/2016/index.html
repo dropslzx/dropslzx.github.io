@@ -12,7 +12,7 @@
         
             归档: 2016 | 
         
-        凡尘
+        Geroge Lee&#39;s blog
     </title>
 
     <!-- Favicons -->
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="George Lee">
     <meta name="description" content="Nothing is difficult to the man who will try.">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="personal blog">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -43,12 +43,12 @@
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="凡尘">
+    <meta name="apple-mobile-web-app-title" content="Geroge Lee&#39;s blog">
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:url" content="http://lzx.dropsec.xyz">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2016 | 凡尘">
+    <meta property="og:title" content="归档: 2016 | Geroge Lee&#39;s blog">
     <meta property="og:description" content="Nothing is difficult to the man who will try.">
     
 
@@ -237,8 +237,14 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            pwnhub--胖哈勃外传第一集wp
-首先看看网站。在首页的源码里面有这样一部分很奇怪
+            pwnhub–胖哈勃外传第一集wp首先看看网站。在首页的源码里面有这样一部分很奇怪
+1&lt;script src=&quot;http://54.223.231.220/image.php?file=http://127.0.0.1:8888/test.png&amp;path=logo.jpg&quot;&gt;&lt;/script&gt;
+访问下，说是logo.jpg更新成功。
+试了几下，发现以下几点
+
+1、首先这个链接是访问file指向的链接，并将返回的内容写到path指向的文件
+2、file指向的连接必须是127.0.0.1的，不太好绕过
+3、path可以是.PHP后缀的文件，但是过滤的尖括号，没有办法二次访问直接webshell。
 
         
         &nbsp;&nbsp;&nbsp;
@@ -296,8 +302,10 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            0x01 先说说文件包含的关键函数
-php文件包含函数include、include_once、require、require_o...
+            0x01 先说说文件包含的关键函数php文件包含函数include、include_once、require、require_once 区别
+1、在错误的处理上
+require()语句在遇到包含文件不存在，或是出错的时候，就停止即行，并报错。include()则继续即行。
+ps：在PHP4.3.5之前不会报错
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -354,10 +362,10 @@ php文件包含函数include、include_once、require、require_o...
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            Tornado安装与“Hello world！”
-一、环境
+            Tornado安装与“Hello world！”一、环境 
 os：centos 7.0
-Python:...
+Python: 2.7.5
+Tornado: 4.4.2
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -415,7 +423,8 @@ Python:...
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
             1、Nmap扫描网段内存活的主机，nmap -sn xxx.xxx.xxx.0/24
-2、MySQL 连接远程数据库（192.168....
+2、MySQL 连接远程数据库（192.168.5.116），端口“3306”，用户名为“root”，密码“123456”C:/&gt;mysql -h 192.168.5.116 -P 3306 -u root -p123456
+3、解决宽字节注入办法:mysql_query(“SET character_set_connection=gbk,character_set_results=gbk,character_set_client=binary”, $conn);
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -472,9 +481,9 @@ Python:...
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            GetFlag
-1、
+            GetFlag1、
 首先是要登陆，但是登陆要验证码，算法已经给出了，写个脚本
+1234567import md5for x in range(1,10000000):	y = str(x)	z = md5.new(y).hexdigest()	#print z	if z[0:6] == &apos;XXXXXX&apos;:		print x
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -531,9 +540,9 @@ Python:...
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            一次虚拟渗透提权
-**1、**查看环境
+            一次虚拟渗透提权1、查看环境
 
+2、御剑扫目录
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -590,10 +599,8 @@ Python:...
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            一、123
-1、
+            一、1231、
 先看源码，提示有user.php,并且告诉你密码的排序方式
-&l...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -650,8 +657,9 @@ Python:...
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            一、sql
-
+            一、sql123456php?id=1 un&lt;&gt;ion se&lt;&gt;lest 1,2,3回显 flag&#123;在数据库中&#125;2
+第二个字段是可以显示的
+123456http://57013df126fb4ca4b3280f842df66e1df71ea932206644c2.game.ichunqiu.com/index.php?id=1 un&lt;&gt;ion s&lt;&gt;elect 1,group_concat(table_name),3 from information_schema.tables where table_schema = database()回显 flag&#123;在数据库中&#125;  info
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -709,8 +717,7 @@ Python:...
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
             最近一直在看绕过，有什么错误的理解欢迎提出
-实验吧-因缺思汀的绕过（p神之作）
-1、
+实验吧-因缺思汀的绕过（p神之作）1、
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -811,7 +818,7 @@ Python:...
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="mailto:970271292@qq.com" target="_blank" title="Email Me">
                         
                             <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         
@@ -983,7 +990,7 @@ It will not impact the appearance and can give developers a lot of support :)
                 var fd = new Date();
                 document.write(fd.getFullYear());
             </script>
-            &nbsp;凡尘
+            &nbsp;Geroge Lee's blog
         </div>
 
         <!-- Paradox Footer Right Section -->

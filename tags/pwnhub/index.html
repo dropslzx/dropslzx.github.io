@@ -12,7 +12,7 @@
         
             标签: pwnhub | 
         
-        凡尘
+        Geroge Lee&#39;s blog
     </title>
 
     <!-- Favicons -->
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="George Lee">
     <meta name="description" content="Nothing is difficult to the man who will try.">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="personal blog">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -43,12 +43,12 @@
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="凡尘">
+    <meta name="apple-mobile-web-app-title" content="Geroge Lee&#39;s blog">
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:url" content="http://lzx.dropsec.xyz">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: pwnhub | 凡尘">
+    <meta property="og:title" content="标签: pwnhub | Geroge Lee&#39;s blog">
     <meta property="og:description" content="Nothing is difficult to the man who will try.">
     
 
@@ -237,8 +237,14 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            pwnhub--胖哈勃外传第一集wp
-首先看看网站。在首页的源码里面有这样一部分很奇怪
+            pwnhub–胖哈勃外传第一集wp首先看看网站。在首页的源码里面有这样一部分很奇怪
+1&lt;script src=&quot;http://54.223.231.220/image.php?file=http://127.0.0.1:8888/test.png&amp;path=logo.jpg&quot;&gt;&lt;/script&gt;
+访问下，说是logo.jpg更新成功。
+试了几下，发现以下几点
+
+1、首先这个链接是访问file指向的链接，并将返回的内容写到path指向的文件
+2、file指向的连接必须是127.0.0.1的，不太好绕过
+3、path可以是.PHP后缀的文件，但是过滤的尖括号，没有办法二次访问直接webshell。
 
         
         &nbsp;&nbsp;&nbsp;
@@ -340,7 +346,7 @@
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="mailto:970271292@qq.com" target="_blank" title="Email Me">
                         
                             <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         
@@ -504,7 +510,7 @@ It will not impact the appearance and can give developers a lot of support :)
                 var fd = new Date();
                 document.write(fd.getFullYear());
             </script>
-            &nbsp;凡尘
+            &nbsp;Geroge Lee's blog
         </div>
 
         <!-- Paradox Footer Right Section -->

@@ -12,7 +12,7 @@
         
             南邮ctf反序列化 | 
         
-        凡尘
+        Geroge Lee&#39;s blog
     </title>
 
     <!-- Favicons -->
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="George Lee">
     <meta name="description" content="Nothing is difficult to the man who will try.">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="personal blog">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -43,12 +43,12 @@
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="凡尘">
+    <meta name="apple-mobile-web-app-title" content="Geroge Lee&#39;s blog">
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:url" content="http://lzx.dropsec.xyz">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="南邮ctf反序列化 | 凡尘">
+    <meta property="og:title" content="南邮ctf反序列化 | Geroge Lee&#39;s blog">
     <meta property="og:description" content="Nothing is difficult to the man who will try.">
     
 
@@ -234,7 +234,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">php中的序列化和反序列化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">2.</span> <span class="post-toc-text">解题过程</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#php中的序列化和反序列化"><span class="post-toc-number">1.</span> <span class="post-toc-text">php中的序列化和反序列化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解题过程"><span class="post-toc-number">2.</span> <span class="post-toc-text">解题过程</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -340,7 +340,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=南邮ctf反序列化&url=http://yoursite.com//2017/03/29/php反序列化/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=南邮ctf反序列化&url=http://lzx.dropsec.xyz//2017/03/29/php反序列化/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -358,7 +358,7 @@
 
     <!-- Share LinkedIn -->
     
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com//2017/03/29/php反序列化/index.html&title=南邮ctf反序列化" target="_blank">
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://lzx.dropsec.xyz//2017/03/29/php反序列化/index.html&title=南邮ctf反序列化" target="_blank">
             <li class="mdl-menu__item">
                 分享到 LinkedIn
             </li>
@@ -367,7 +367,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=凡尘&title=南邮ctf反序列化&summary=Nothing is difficult to the man who will try.&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2017/03/29/php反序列化/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Geroge Lee&#39;s blog&title=南邮ctf反序列化&summary=Nothing is difficult to the man who will try.&pics=http://lzx.dropsec.xyz/img/favicon.png&url=http://lzx.dropsec.xyz/2017/03/29/php反序列化/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -385,32 +385,18 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h4>php中的序列化和反序列化</h4>
-<p>把复杂的数据类型压缩到一个字符串中
-serialize() 把变量和它们的值编码成文本形式
-unserialize() 恢复原先变量
-&lt;!--more--&gt;
-eg：</p>
-<pre><code>$m = array('Moe','Larry','Curly');
+        <h4 id="php中的序列化和反序列化"><a href="#php中的序列化和反序列化" class="headerlink" title="php中的序列化和反序列化"></a>php中的序列化和反序列化</h4><p>把复杂的数据类型压缩到一个字符串中<br>serialize() 把变量和它们的值编码成文本形式<br>unserialize() 恢复原先变量<br><a id="more"></a><br>eg：</p>
+<pre><code>$m = array(&apos;Moe&apos;,&apos;Larry&apos;,&apos;Curly&apos;);
 $n = serialize($m);
 print_r($n);echo &quot;&lt;br /&gt;&quot;;
 print_r(unserialize($n));
-</code></pre>
-<p>结果：a:3:{i:0;s:3:&quot;Moe&quot;;i:1;s:5:&quot;Larry&quot;;i:2;s:5:&quot;Curly&quot;;}
-Array ( [0] =&gt; Moe [1] =&gt; Larry [2] =&gt; Curly )</p>
-<h4>解题过程</h4>
-<p>**1、**地址:http://115.28.150.176/php1/index.php</p>
-<p>**2、**代码
-<img src="http://obh16g4rw.bkt.clouddn.com/6.png" alt=""></p>
-<p>**3、**解释代码</p>
-<p><img src="http://obh16g4rw.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160830101943.png" alt="">
-先定义一个类just4fun，类里面有两个成员enter和secret；判断是否存在通过GET提交的pass变量，再判断提交的语句中是否有''，存在就去掉''。
-<img src="http://obh16g4rw.bkt.clouddn.com/23.png" alt="">
-将$pass反序列化然后赋值给$o，后面就是判断$o-&gt;secret和$o-&gt;enter是否相等，相等就输出flag</p>
-<p>**4、**构造Poc</p>
-<p>由于php支持引用赋值，它意味着两个变量指向了同一个数据，没有拷贝任何东西
-<img src="http://obh16g4rw.bkt.clouddn.com/jj.png" alt="">
-结果pass=O:8:&quot;just4fun&quot;:2:{s:5:&quot;enter&quot;;N;s:6:&quot;secret&quot;;R:2;}</p>
+</code></pre><p>结果：a:3:{i:0;s:3:”Moe”;i:1;s:5:”Larry”;i:2;s:5:”Curly”;}<br>Array ( [0] =&gt; Moe [1] =&gt; Larry [2] =&gt; Curly )</p>
+<h4 id="解题过程"><a href="#解题过程" class="headerlink" title="解题过程"></a>解题过程</h4><p><strong>1、</strong>地址:<a href="http://115.28.150.176/php1/index.php" target="_blank" rel="external">http://115.28.150.176/php1/index.php</a></p>
+<p><strong>2、</strong>代码<br><img src="http://obh16g4rw.bkt.clouddn.com/6.png" alt=""></p>
+<p><strong>3、</strong>解释代码</p>
+<p><img src="http://obh16g4rw.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160830101943.png" alt=""><br>先定义一个类just4fun，类里面有两个成员enter和secret；判断是否存在通过GET提交的pass变量，再判断提交的语句中是否有’\’，存在就去掉’\’。<br><img src="http://obh16g4rw.bkt.clouddn.com/23.png" alt=""><br>将$pass反序列化然后赋值给$o，后面就是判断$o-&gt;secret和$o-&gt;enter是否相等，相等就输出flag</p>
+<p><strong>4、</strong>构造Poc</p>
+<p>由于php支持引用赋值，它意味着两个变量指向了同一个数据，没有拷贝任何东西<br><img src="http://obh16g4rw.bkt.clouddn.com/jj.png" alt=""><br>结果pass=O:8:”just4fun”:2:{s:5:”enter”;N;s:6:”secret”;R:2;}</p>
 
     
 
@@ -504,7 +490,7 @@ Array ( [0] =&gt; Moe [1] =&gt; Larry [2] =&gt; Curly )</p>
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="mailto:970271292@qq.com" target="_blank" title="Email Me">
                         
                             <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         
@@ -676,7 +662,7 @@ It will not impact the appearance and can give developers a lot of support :)
                 var fd = new Date();
                 document.write(fd.getFullYear());
             </script>
-            &nbsp;凡尘
+            &nbsp;Geroge Lee's blog
         </div>
 
         <!-- Paradox Footer Right Section -->

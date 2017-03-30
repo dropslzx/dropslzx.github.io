@@ -234,7 +234,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#php中的序列化和反序列化"><span class="post-toc-number">1.</span> <span class="post-toc-text">php中的序列化和反序列化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解题过程"><span class="post-toc-number">2.</span> <span class="post-toc-text">解题过程</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">php中的序列化和反序列化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">2.</span> <span class="post-toc-text">解题过程</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -326,6 +326,17 @@
     
 
     
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
 
     <!-- Share Weibo -->
     
@@ -338,35 +349,29 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=南邮ctf反序列化&url=http://yoursite.com//2017/03/29/php反序列化/index.html&via=George Lee" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
-    
 
     <!-- Share Facebook -->
-    
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com//2017/03/29/php反序列化/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Facebook
-            </li>
-        </a>
     
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com//2017/03/29/php反序列化/index.html" target="_blank">
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com//2017/03/29/php反序列化/index.html&title=南邮ctf反序列化" target="_blank">
             <li class="mdl-menu__item">
-                分享到 Google+
+                分享到 LinkedIn
             </li>
         </a>
     
 
-    <!-- Share LinkedIn -->
-    
-
     <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=凡尘&title=南邮ctf反序列化&summary=Nothing is difficult to the man who will try.&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2017/03/29/php反序列化/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
     
 
     <!-- Share Telegram -->
@@ -380,18 +385,32 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h4 id="php中的序列化和反序列化"><a href="#php中的序列化和反序列化" class="headerlink" title="php中的序列化和反序列化"></a>php中的序列化和反序列化</h4><p>把复杂的数据类型压缩到一个字符串中<br>serialize() 把变量和它们的值编码成文本形式<br>unserialize() 恢复原先变量<br><a id="more"></a><br>eg：</p>
-<pre><code>$m = array(&apos;Moe&apos;,&apos;Larry&apos;,&apos;Curly&apos;);
+        <h4>php中的序列化和反序列化</h4>
+<p>把复杂的数据类型压缩到一个字符串中
+serialize() 把变量和它们的值编码成文本形式
+unserialize() 恢复原先变量
+&lt;!--more--&gt;
+eg：</p>
+<pre><code>$m = array('Moe','Larry','Curly');
 $n = serialize($m);
 print_r($n);echo &quot;&lt;br /&gt;&quot;;
 print_r(unserialize($n));
-</code></pre><p>结果：a:3:{i:0;s:3:”Moe”;i:1;s:5:”Larry”;i:2;s:5:”Curly”;}<br>Array ( [0] =&gt; Moe [1] =&gt; Larry [2] =&gt; Curly )</p>
-<h4 id="解题过程"><a href="#解题过程" class="headerlink" title="解题过程"></a>解题过程</h4><p><strong>1、</strong>地址:<a href="http://115.28.150.176/php1/index.php" target="_blank" rel="external">http://115.28.150.176/php1/index.php</a></p>
-<p><strong>2、</strong>代码<br><img src="http://obh16g4rw.bkt.clouddn.com/6.png" alt=""></p>
-<p><strong>3、</strong>解释代码</p>
-<p><img src="http://obh16g4rw.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160830101943.png" alt=""><br>先定义一个类just4fun，类里面有两个成员enter和secret；判断是否存在通过GET提交的pass变量，再判断提交的语句中是否有’\’，存在就去掉’\’。<br><img src="http://obh16g4rw.bkt.clouddn.com/23.png" alt=""><br>将$pass反序列化然后赋值给$o，后面就是判断$o-&gt;secret和$o-&gt;enter是否相等，相等就输出flag</p>
-<p><strong>4、</strong>构造Poc</p>
-<p>由于php支持引用赋值，它意味着两个变量指向了同一个数据，没有拷贝任何东西<br><img src="http://obh16g4rw.bkt.clouddn.com/jj.png" alt=""><br>结果pass=O:8:”just4fun”:2:{s:5:”enter”;N;s:6:”secret”;R:2;}</p>
+</code></pre>
+<p>结果：a:3:{i:0;s:3:&quot;Moe&quot;;i:1;s:5:&quot;Larry&quot;;i:2;s:5:&quot;Curly&quot;;}
+Array ( [0] =&gt; Moe [1] =&gt; Larry [2] =&gt; Curly )</p>
+<h4>解题过程</h4>
+<p>**1、**地址:http://115.28.150.176/php1/index.php</p>
+<p>**2、**代码
+<img src="http://obh16g4rw.bkt.clouddn.com/6.png" alt=""></p>
+<p>**3、**解释代码</p>
+<p><img src="http://obh16g4rw.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160830101943.png" alt="">
+先定义一个类just4fun，类里面有两个成员enter和secret；判断是否存在通过GET提交的pass变量，再判断提交的语句中是否有''，存在就去掉''。
+<img src="http://obh16g4rw.bkt.clouddn.com/23.png" alt="">
+将$pass反序列化然后赋值给$o，后面就是判断$o-&gt;secret和$o-&gt;enter是否相等，相等就输出flag</p>
+<p>**4、**构造Poc</p>
+<p>由于php支持引用赋值，它意味着两个变量指向了同一个数据，没有拷贝任何东西
+<img src="http://obh16g4rw.bkt.clouddn.com/jj.png" alt="">
+结果pass=O:8:&quot;just4fun&quot;:2:{s:5:&quot;enter&quot;;N;s:6:&quot;secret&quot;;R:2;}</p>
 
     
 
@@ -605,29 +624,11 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.png);">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.png);">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -646,6 +647,12 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/dropslzx" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -725,6 +732,9 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

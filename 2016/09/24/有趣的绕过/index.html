@@ -234,7 +234,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#实验吧-因缺思汀的绕过（p神之作）"><span class="post-toc-number">1.</span> <span class="post-toc-text">实验吧-因缺思汀的绕过（p神之作）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#常见的mysql特性注入绕过"><span class="post-toc-number">2.</span> <span class="post-toc-text">常见的mysql特性注入绕过</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">实验吧-因缺思汀的绕过（p神之作）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">2.</span> <span class="post-toc-text">常见的mysql特性注入绕过</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -326,6 +326,17 @@
     
 
     
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
 
     <!-- Share Weibo -->
     
@@ -338,35 +349,29 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=有趣的绕过&url=http://yoursite.com//2016/09/24/有趣的绕过/index.html&via=George Lee" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
-    
 
     <!-- Share Facebook -->
-    
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com//2016/09/24/有趣的绕过/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Facebook
-            </li>
-        </a>
     
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com//2016/09/24/有趣的绕过/index.html" target="_blank">
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com//2016/09/24/有趣的绕过/index.html&title=有趣的绕过" target="_blank">
             <li class="mdl-menu__item">
-                分享到 Google+
+                分享到 LinkedIn
             </li>
         </a>
     
 
-    <!-- Share LinkedIn -->
-    
-
     <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=凡尘&title=有趣的绕过&summary=Nothing is difficult to the man who will try.&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2016/09/24/有趣的绕过/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
     
 
     <!-- Share Telegram -->
@@ -381,29 +386,35 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>最近一直在看绕过，有什么错误的理解欢迎提出</p>
-<h4 id="实验吧-因缺思汀的绕过（p神之作）"><a href="#实验吧-因缺思汀的绕过（p神之作）" class="headerlink" title="实验吧-因缺思汀的绕过（p神之作）"></a>实验吧-因缺思汀的绕过（p神之作）</h4><p><strong>1、</strong><br><a id="more"></a></p>
+<h4>实验吧-因缺思汀的绕过（p神之作）</h4>
+<p><strong>1、</strong>
+&lt;!--more--&gt;</p>
 <p>老思路-Ctrl+u，查看源码。发现source.txt</p>
 <p><strong>2、</strong></p>
-<p>发现源码<br><img src="http://obh16g4rw.bkt.clouddn.com/%E8%B5%9B%E8%89%872.png" alt=""></p>
+<p>发现源码
+<img src="http://obh16g4rw.bkt.clouddn.com/%E8%B5%9B%E8%89%872.png" alt=""></p>
 <p>关键部分<img src="http://obh16g4rw.bkt.clouddn.com/%E8%B5%9B%E8%89%87.png" alt=""></p>
 <p>判断第一层</p>
 <pre><code>if (mysql_num_rows($query) == 1)
-</code></pre><p>mysql_num_rows()函数返回查询结果中行的数目，判断为1，即可绕过</p>
-<p>Poc:uname=’or 1 limit 1#</p>
+</code></pre>
+<p>mysql_num_rows()函数返回查询结果中行的数目，判断为1，即可绕过</p>
+<p>Poc:uname='or 1 limit 1#</p>
 <p>第二层</p>
-<pre><code>if($key[&apos;pwd&apos;] == $_POST[&apos;pwd&apos;]) {
-        print &quot;CTF{XXXXXX}&quot;;
-    }else{
-        print &quot;亦可赛艇！&quot;;
-</code></pre><p>这里需要 group by with rollup （对分组后的结果进行汇总）</p>
+<pre><code>if($key['pwd'] == $_POST['pwd']) {
+    	print &quot;CTF{XXXXXX}&quot;;
+	}else{
+    	print &quot;亦可赛艇！&quot;;
+</code></pre>
+<p>这里需要 group by with rollup （对分组后的结果进行汇总）</p>
 <p>经过不断的测试发现库里的表大概是下面这个样子</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/%E8%A1%A8.png" alt=""></p>
 <p>发现表只有三条数据，那这样就能绕过得到flag了</p>
-<p>Poc：uname=’or 1 group by pwd with rollup limit 1 OFFSET 2#</p>
+<p>Poc：uname='or 1 group by pwd with rollup limit 1 OFFSET 2#</p>
 <p>注：pwd参数不需要提交，弱类型判断NULL和空字符串相等</p>
-<h4 id="常见的mysql特性注入绕过"><a href="#常见的mysql特性注入绕过" class="headerlink" title="常见的mysql特性注入绕过"></a>常见的mysql特性注入绕过</h4><p><strong>1、</strong>利用大小写</p>
+<h4>常见的mysql特性注入绕过</h4>
+<p>**1、**利用大小写</p>
 <p>在mysql数据库中，你是看不到大写字符的。填写表单的时候，填入ADMIN，插入到数据库中的是admin，这样也是一种绕过</p>
-<p><strong>2、</strong>利用容量大小</p>
+<p>**2、**利用容量大小</p>
 <p>在注册用户名的时候，利用函数定义插入数据库长度限制，输入大于规定长度的字符串，就会造成表的覆盖</p>
 
     
@@ -610,29 +621,11 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.png);">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.png);">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -651,6 +644,12 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/dropslzx" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -730,6 +729,9 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

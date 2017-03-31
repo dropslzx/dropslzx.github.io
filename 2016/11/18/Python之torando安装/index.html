@@ -234,7 +234,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Tornado安装与“Hello-world！”"><span class="post-toc-number">1.</span> <span class="post-toc-text">Tornado安装与“Hello world！”</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#二、下载安装Tornado"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、下载安装Tornado</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#三、Hello-World"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、Hello World</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">Tornado安装与“Hello world！”</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、下载安装Tornado</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、Hello World</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -388,22 +388,29 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h4 id="Tornado安装与“Hello-world！”"><a href="#Tornado安装与“Hello-world！”" class="headerlink" title="Tornado安装与“Hello world！”"></a>Tornado安装与“Hello world！”</h4><p>一、环境 </p>
+        <h4>Tornado安装与“Hello world！”</h4>
+<p>一、环境</p>
 <p>os：centos 7.0</p>
 <p>Python: 2.7.5</p>
 <p>Tornado: 4.4.2</p>
-<a id="more"></a>
-<h4 id="二、下载安装Tornado"><a href="#二、下载安装Tornado" class="headerlink" title="二、下载安装Tornado"></a>二、下载安装Tornado</h4><p>我们可以<a href="https://pypi.python.org/pypi/tornado/#downloads" target="_blank" rel="external">python官网</a>下载（大约有500k左右），然后进行安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1、tar xvzf tornado-4.4.2</div><div class="line">2、cd tornado-4.4.2</div><div class="line">3、python setup.py build</div><div class="line">4、sudo python setup.py install</div></pre></td></tr></table></figure>
-<h4 id="三、Hello-World"><a href="#三、Hello-World" class="headerlink" title="三、Hello World"></a>三、Hello World</h4><p>桌面新建文件hello.py（代码使用了命令行参数以及get参数）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#! /usr/bin/python</div><div class="line"># -*- coding:utf-8 -*-</div><div class="line"></div><div class="line">import tornado.httpserver</div><div class="line">import tornado.ioloop</div><div class="line">import tornado.options</div><div class="line">import tornado.web</div><div class="line"></div><div class="line">from tornado.options import define, options</div><div class="line">define(&quot;port&quot;, default=8000, help=&quot;run on the given port&quot;, type=int)</div><div class="line"></div><div class="line">class IndexHandler(tornado.web.RequestHandler):    </div><div class="line">	def get(self):</div><div class="line">		greeting = self.get_argument(&apos;greeting&apos;, &apos;Hello&apos;)</div><div class="line">		self.write(greeting + &apos;, tornado!&apos;)</div><div class="line"> </div><div class="line">if __name__ == &quot;__main__&quot;:</div><div class="line">    tornado.options.parse_command_line()</div><div class="line">    app = tornado.web.Application(handlers=[(r&quot;/&quot;, IndexHandler)])</div><div class="line">    http_server = tornado.httpserver.HTTPServer(app)</div><div class="line">    http_server.listen(options.port)</div><div class="line">    tornado.ioloop.IOLoop.instance().start()</div></pre></td></tr></table></figure>
-<p>加执行权限，运行./hello.py –port=12345</p>
-<p>在本地浏览器打开<a href="http://localhost:12345/可以看到：" target="_blank" rel="external">http://localhost:12345/可以看到：</a><br>Hello, tornado!</p>
-<p>打开<a href="http://127.0.0.1:12345/?greeting=Bye可以看到：" target="_blank" rel="external">http://127.0.0.1:12345/?greeting=Bye可以看到：</a><br>Bye, tornado!</p>
+<p>&lt;!--more--&gt;</p>
+<h4>二、下载安装Tornado</h4>
+<p>我们可以<a href="https://pypi.python.org/pypi/tornado/#downloads" target="_blank" rel="external">python官网</a>下载（大约有500k左右），然后进行安装</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1、tar xvzf tornado-4.4.2</div><div class="line">2、cd tornado-4.4.2</div><div class="line">3、python setup.py build</div><div class="line">4、sudo python setup.py install</div></pre></td></tr></table></figure></p>
+<h4>三、Hello World</h4>
+<p>桌面新建文件hello.py（代码使用了命令行参数以及get参数）</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#! /usr/bin/python</div><div class="line"># -*- coding:utf-8 -*-</div><div class="line"></div><div class="line">import tornado.httpserver</div><div class="line">import tornado.ioloop</div><div class="line">import tornado.options</div><div class="line">import tornado.web</div><div class="line"></div><div class="line">from tornado.options import define, options</div><div class="line">define(&quot;port&quot;, default=8000, help=&quot;run on the given port&quot;, type=int)</div><div class="line"></div><div class="line">class IndexHandler(tornado.web.RequestHandler):    </div><div class="line">	def get(self):</div><div class="line">		greeting = self.get_argument(&apos;greeting&apos;, &apos;Hello&apos;)</div><div class="line">		self.write(greeting + &apos;, tornado!&apos;)</div><div class="line"> </div><div class="line">if __name__ == &quot;__main__&quot;:</div><div class="line">    tornado.options.parse_command_line()</div><div class="line">    app = tornado.web.Application(handlers=[(r&quot;/&quot;, IndexHandler)])</div><div class="line">    http_server = tornado.httpserver.HTTPServer(app)</div><div class="line">    http_server.listen(options.port)</div><div class="line">    tornado.ioloop.IOLoop.instance().start()</div></pre></td></tr></table></figure></p>
+<p>加执行权限，运行./hello.py --port=12345</p>
+<p>在本地浏览器打开http://localhost:12345/可以看到：
+Hello, tornado!</p>
+<p>打开http://127.0.0.1:12345/?greeting=Bye可以看到：
+Bye, tornado!</p>
 <p>下面来逐句进行解释：</p>
 <p>行4-7：引入tornado的部分模块。</p>
 <p>行9-10：tornado.options模块可以从命令行中读取配置，如同shell里面的getopt一样。这里我们定义了一个设置选项，名为port，即端口。default表示默认值，help表示在帮助中显示的信息，type表示该设置参数的类型，如果类型匹配错误会报错。</p>
-<p>行12-15：这是一个页面请求的Handler。目前只有一个get方法，该方法表示Http的Get请求。<br>RequestHandler类有一些有用的内建方法，其中get_argument可以用来像上面执行过程中的第二个网址一样添加参数，如果没有则显示为默认值（get_argument方法的第二个参数）。<br>而另一个常用的内建方法write，它的目的是将其中的字符串写在页面中。</p>
+<p>行12-15：这是一个页面请求的Handler。目前只有一个get方法，该方法表示Http的Get请求。
+RequestHandler类有一些有用的内建方法，其中get_argument可以用来像上面执行过程中的第二个网址一样添加参数，如果没有则显示为默认值（get_argument方法的第二个参数）。
+而另一个常用的内建方法write，它的目的是将其中的字符串写在页面中。</p>
 <p>行18：从命令行中取得配置参数。</p>
 <p>行19：建立一个tornado应用。handlers是一个由一系列二元组组成的列表，其中每个二元组的第一个元素是一个正则表达式，表示网址路由，如果其中包含捕获分组，则将匹配的内容送往RequestHandler；第二个元素是所使用的RequestHandler类。</p>
 <p>行20：使用这个tornado应用创建一个http服务器。</p>
@@ -578,6 +585,14 @@
     
 
     <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">15</span>
+            </a>
+        </li>
+        
     
 </ul>
 

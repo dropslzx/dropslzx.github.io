@@ -353,66 +353,67 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <style type="text/css">
+        <p>&lt;style type=&quot;text/css&quot;&gt;
 .article-title {
-    font-size: 2.1em;
+font-size: 2.1em;
 }
 strong a {
-    color: #747474;
+color: #747474;
 }
 .share {
-    display: none;
+display: none;
 }
 .player {
-    margin-left: -10px;
+margin-left: -10px;
 }
 .sign {
-    text-align: right;
-    font-style: italic;
+text-align: right;
+font-style: italic;
 }
 #page-visit {
-    display: none;
+display: none;
 }
 .center {
-    text-align: center;
-    height: 2.5em;
-    font-weight: bold;
+text-align: center;
+height: 2.5em;
+font-weight: bold;
 }
 .search2 {
-    height: 2.2em;
-    font-size: 1em;
-    width: 50%;
-    margin: auto 24%;
-    color: #727272;
-    opacity: .6;
-    border: 2px solid lightgray;
+height: 2.2em;
+font-size: 1em;
+width: 50%;
+margin: auto 24%;
+color: #727272;
+opacity: .6;
+border: 2px solid lightgray;
 }
 .search2:hover {
-    opacity: 1;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
-    };
+opacity: 1;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
+};
 .article-entry hr {
-    margin: 0;
+margin: 0;
 }
 .pic {
-    text-align: center;
-    margin: 0;
+text-align: center;
+margin: 0;
 }
 .pic br {
-    display: none;
+display: none;
 }
-</style>
-
+&lt;/style&gt;</p>
 <hr>
-<div class="pic"><br><img src="/img/404.jpg" title="Mihawk-Wind"><br></div>
+<p>&lt;div class=&quot;pic&quot;&gt;
+&lt;img src=&quot;/img/404.jpg&quot; title=&quot;Mihawk-Wind&quot;&gt;
+&lt;/div&gt;</p>
+<p>&lt;p class=&quot;center&quot;&gt;很抱歉，您所访问的地址并不存在: &lt;/p&gt;</p>
+<p>&lt;p class=&quot;center&quot;&gt;&lt;a href=&quot;/&quot;&gt;回主页&lt;/a&gt; · &lt;a href=&quot;/archives&quot;&gt;所有文章&lt;/a&gt; · &lt;a href=&quot;/about&quot;&gt;关于&lt;/a&gt;&lt;/p&gt;</p>
+<p>&lt;p class=&quot;center&quot;&gt;可在边栏搜索框中对本站进行检索，以获取相关信息。&lt;/p&gt;</p>
+<p>&lt;div style=&quot;text-align: center&quot;&gt;
+以下是博主喜欢的一些歌曲，可以听听，稍作休息~
+&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=320 height=330 src=&quot;http://music.163.com/outchain/player?type=0&amp;id=112513213&amp;auto=0&amp;height=430&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;</p>
 
-<p class="center">很抱歉，您所访问的地址并不存在: </p>
-
-<p class="center"><a href="/">回主页</a> · <a href="/archives">所有文章</a> · <a href="/about">关于</a></p>
-
-<p class="center">可在边栏搜索框中对本站进行检索，以获取相关信息。</p>
-
-<div style="text-align: center"><br>以下是博主喜欢的一些歌曲，可以听听，稍作休息~<br><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="320" height="330" src="http://music.163.com/outchain/player?type=0&id=112513213&auto=0&height=430"></iframe><br></div>
     
 
     
@@ -566,7 +567,7 @@ strong a {
         <li>
             <a href="/links" title="友情链接">
                 
-                    <i class="material-icons sidebar-material-icons">favourite</i>
+                    <i class="material-icons sidebar-material-icons">favorite</i>
                 
                 友情链接
             </a>
@@ -768,6 +769,106 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 <!-- Local Search-->
+
+    <script>
+    var searchFunc = function(path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: 'xml',
+            success: function( xmlResponse ) {
+                // get the contents from search data
+                var datas = $( 'entry', xmlResponse ).map(function() {
+                    return {
+                        title: $( 'title', this ).text(),
+                        content: $('content',this).text(),
+                        url: $( 'url' , this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function() {
+                    var str='<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = '';
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function(data) {
+                        var isMatch = true;
+                        var content_index = [];
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g,'').toLowerCase();
+                        var data_url = data.url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if(data_title !== '' && data_content !== '') {
+                            keywords.forEach(function(keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if( index_title < 0 && index_content < 0 ) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += '<li><a href="'+ data_url +'" class="search-result-title" target="_blank">'+ data_title;
+                            var content = data.content.trim().replace(/<[^>]+>/g, '');
+                            if (first_occur >= 0) {
+                                // cut out characters
+                                var start = first_occur - 6;
+                                var end = first_occur + 6;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 10;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, 'gi');
+                                    match_content = match_content.replace(regS, '<em class="search-keyword">'+keyword+'</em>');
+                                })
+                                str += '<p class="search-result">' + match_content + '...</p>' +'</a>';
+                            }
+                        }
+                    });
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    }
+</script>
+
+
+    <script>
+        var inputArea = document.querySelector('#search');
+        var getSearchFile = function() {
+            var path = 'search.xml';
+            searchFunc(path, 'search', 'local-search-result');
+        }
+
+        if(inputArea) {
+            inputArea.onfocus = function() {
+                getSearchFile();
+            }
+        }
+    </script>
 
 
 <!-- Window Load-->

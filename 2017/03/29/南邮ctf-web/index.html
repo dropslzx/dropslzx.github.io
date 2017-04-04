@@ -392,7 +392,7 @@
 <p>查看源码就可得到</p>
 <p><strong>md5 collision</strong></p>
 <p>Poc:a=240610708</p>
-<a id="more"></a>
+<p>&lt;!--more--&gt;</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20160901180637.png" alt=""></p>
 <p><strong>签到2</strong></p>
 <p>关键点：输入框设定了最大的长度限制</p>
@@ -403,7 +403,7 @@
 <p><strong>单身二十年</strong></p>
 <p>源码点击./search_key.php，getflag</p>
 <p><strong>你从哪里来</strong></p>
-<p>referer: <a href="http://www.google.com" target="_blank" rel="external">http://www.google.com</a></p>
+<p>referer: http://www.google.com</p>
 <p><strong>文件包含</strong></p>
 <p>Poc：file=php://filter/convert.base64-encode/resource=index.php</p>
 <p><strong>单身一百年也没用</strong></p>
@@ -417,14 +417,14 @@
 <p>2、sql.php?id=1024.00001</p>
 <p><strong>sql injection 3</strong></p>
 <p>id=2,gbk</p>
-<p>id=1%df’ union select 1,2 –+</p>
-<p>id=1%df’ union select database(),2 –+         </p>
+<p>id=1%df' union select 1,2 --+</p>
+<p>id=1%df' union select database(),2 --+</p>
 <p>回显sqli</p>
-<p>id=1%df’ union select 1,table_name from information_schema.tables where table_schema=0x73716C6931</p>
+<p>id=1%df' union select 1,table_name from information_schema.tables where table_schema=0x73716C6931</p>
 <p>回显 falg</p>
-<p>id=1%df’ union select 1,cloumn_name from information_schema.columns where table_schema=0x73716C6931</p>
+<p>id=1%df' union select 1,cloumn_name from information_schema.columns where table_schema=0x73716C6931</p>
 <p>回显 fl4g</p>
-<p>id=1%df’ union select 1,fl4g from  flag –+</p>
+<p>id=1%df' union select 1,fl4g from  flag --+</p>
 <p><strong>/x00</strong></p>
 <p>Poc:nctf[]=1.#biubiubiu</p>
 <p><strong>bypass again</strong></p>
@@ -438,7 +438,7 @@
 <p><strong>上传绕过</strong></p>
 <p>截断 <a href="http://www.myhack58.com/Article/html/3/8/2013/36507.htm" target="_blank" rel="external">截断上传绕过</a></p>
 <p><strong>SQL注入1</strong></p>
-<p>admin’)#&amp;111</p>
+<p>admin')#&amp;111</p>
 <p><strong>pass check</strong></p>
 <p>输入123，抓包改为传入数组</p>
 <p><strong>起名字真难</strong></p>
@@ -613,7 +613,7 @@
         <li>
             <a href="/links" title="友情链接">
                 
-                    <i class="material-icons sidebar-material-icons">favourite</i>
+                    <i class="material-icons sidebar-material-icons">favorite</i>
                 
                 友情链接
             </a>
@@ -823,6 +823,106 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 <!-- Local Search-->
+
+    <script>
+    var searchFunc = function(path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: 'xml',
+            success: function( xmlResponse ) {
+                // get the contents from search data
+                var datas = $( 'entry', xmlResponse ).map(function() {
+                    return {
+                        title: $( 'title', this ).text(),
+                        content: $('content',this).text(),
+                        url: $( 'url' , this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function() {
+                    var str='<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = '';
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function(data) {
+                        var isMatch = true;
+                        var content_index = [];
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g,'').toLowerCase();
+                        var data_url = data.url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if(data_title !== '' && data_content !== '') {
+                            keywords.forEach(function(keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if( index_title < 0 && index_content < 0 ) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += '<li><a href="'+ data_url +'" class="search-result-title" target="_blank">'+ data_title;
+                            var content = data.content.trim().replace(/<[^>]+>/g, '');
+                            if (first_occur >= 0) {
+                                // cut out characters
+                                var start = first_occur - 6;
+                                var end = first_occur + 6;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 10;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, 'gi');
+                                    match_content = match_content.replace(regS, '<em class="search-keyword">'+keyword+'</em>');
+                                })
+                                str += '<p class="search-result">' + match_content + '...</p>' +'</a>';
+                            }
+                        }
+                    });
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    }
+</script>
+
+
+    <script>
+        var inputArea = document.querySelector('#search');
+        var getSearchFile = function() {
+            var path = 'search.xml';
+            searchFunc(path, 'search', 'local-search-result');
+        }
+
+        if(inputArea) {
+            inputArea.onfocus = function() {
+                getSearchFile();
+            }
+        }
+    </script>
 
 
 <!-- Window Load-->

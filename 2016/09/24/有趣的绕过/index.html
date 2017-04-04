@@ -234,7 +234,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#实验吧-因缺思汀的绕过（p神之作）"><span class="post-toc-number">1.</span> <span class="post-toc-text">实验吧-因缺思汀的绕过（p神之作）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#常见的mysql特性注入绕过"><span class="post-toc-number">2.</span> <span class="post-toc-text">常见的mysql特性注入绕过</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">实验吧-因缺思汀的绕过（p神之作）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">2.</span> <span class="post-toc-text">常见的mysql特性注入绕过</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -389,29 +389,35 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>最近一直在看绕过，有什么错误的理解欢迎提出</p>
-<h4 id="实验吧-因缺思汀的绕过（p神之作）"><a href="#实验吧-因缺思汀的绕过（p神之作）" class="headerlink" title="实验吧-因缺思汀的绕过（p神之作）"></a>实验吧-因缺思汀的绕过（p神之作）</h4><p><strong>1、</strong><br><a id="more"></a></p>
+<h4>实验吧-因缺思汀的绕过（p神之作）</h4>
+<p><strong>1、</strong>
+&lt;!--more--&gt;</p>
 <p>老思路-Ctrl+u，查看源码。发现source.txt</p>
 <p><strong>2、</strong></p>
-<p>发现源码<br><img src="http://obh16g4rw.bkt.clouddn.com/%E8%B5%9B%E8%89%872.png" alt=""></p>
+<p>发现源码
+<img src="http://obh16g4rw.bkt.clouddn.com/%E8%B5%9B%E8%89%872.png" alt=""></p>
 <p>关键部分<img src="http://obh16g4rw.bkt.clouddn.com/%E8%B5%9B%E8%89%87.png" alt=""></p>
 <p>判断第一层</p>
 <pre><code>if (mysql_num_rows($query) == 1)
-</code></pre><p>mysql_num_rows()函数返回查询结果中行的数目，判断为1，即可绕过</p>
-<p>Poc:uname=’or 1 limit 1#</p>
+</code></pre>
+<p>mysql_num_rows()函数返回查询结果中行的数目，判断为1，即可绕过</p>
+<p>Poc:uname='or 1 limit 1#</p>
 <p>第二层</p>
-<pre><code>if($key[&apos;pwd&apos;] == $_POST[&apos;pwd&apos;]) {
-        print &quot;CTF{XXXXXX}&quot;;
-    }else{
-        print &quot;亦可赛艇！&quot;;
-</code></pre><p>这里需要 group by with rollup （对分组后的结果进行汇总）</p>
+<pre><code>if($key['pwd'] == $_POST['pwd']) {
+    	print &quot;CTF{XXXXXX}&quot;;
+	}else{
+    	print &quot;亦可赛艇！&quot;;
+</code></pre>
+<p>这里需要 group by with rollup （对分组后的结果进行汇总）</p>
 <p>经过不断的测试发现库里的表大概是下面这个样子</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/%E8%A1%A8.png" alt=""></p>
 <p>发现表只有三条数据，那这样就能绕过得到flag了</p>
-<p>Poc：uname=’or 1 group by pwd with rollup limit 1 OFFSET 2#</p>
+<p>Poc：uname='or 1 group by pwd with rollup limit 1 OFFSET 2#</p>
 <p>注：pwd参数不需要提交，弱类型判断NULL和空字符串相等</p>
-<h4 id="常见的mysql特性注入绕过"><a href="#常见的mysql特性注入绕过" class="headerlink" title="常见的mysql特性注入绕过"></a>常见的mysql特性注入绕过</h4><p><strong>1、</strong>利用大小写</p>
+<h4>常见的mysql特性注入绕过</h4>
+<p>**1、**利用大小写</p>
 <p>在mysql数据库中，你是看不到大写字符的。填写表单的时候，填入ADMIN，插入到数据库中的是admin，这样也是一种绕过</p>
-<p><strong>2、</strong>利用容量大小</p>
+<p>**2、**利用容量大小</p>
 <p>在注册用户名的时候，利用函数定义插入数据库长度限制，输入大于规定长度的字符串，就会造成表的覆盖</p>
 
     
@@ -575,7 +581,7 @@
         <li>
             <a href="/links" title="友情链接">
                 
-                    <i class="material-icons sidebar-material-icons">favourite</i>
+                    <i class="material-icons sidebar-material-icons">favorite</i>
                 
                 友情链接
             </a>
@@ -785,6 +791,106 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 <!-- Local Search-->
+
+    <script>
+    var searchFunc = function(path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: 'xml',
+            success: function( xmlResponse ) {
+                // get the contents from search data
+                var datas = $( 'entry', xmlResponse ).map(function() {
+                    return {
+                        title: $( 'title', this ).text(),
+                        content: $('content',this).text(),
+                        url: $( 'url' , this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function() {
+                    var str='<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = '';
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function(data) {
+                        var isMatch = true;
+                        var content_index = [];
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g,'').toLowerCase();
+                        var data_url = data.url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if(data_title !== '' && data_content !== '') {
+                            keywords.forEach(function(keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if( index_title < 0 && index_content < 0 ) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += '<li><a href="'+ data_url +'" class="search-result-title" target="_blank">'+ data_title;
+                            var content = data.content.trim().replace(/<[^>]+>/g, '');
+                            if (first_occur >= 0) {
+                                // cut out characters
+                                var start = first_occur - 6;
+                                var end = first_occur + 6;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 10;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, 'gi');
+                                    match_content = match_content.replace(regS, '<em class="search-keyword">'+keyword+'</em>');
+                                })
+                                str += '<p class="search-result">' + match_content + '...</p>' +'</a>';
+                            }
+                        }
+                    });
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    }
+</script>
+
+
+    <script>
+        var inputArea = document.querySelector('#search');
+        var getSearchFile = function() {
+            var path = 'search.xml';
+            searchFunc(path, 'search', 'local-search-result');
+        }
+
+        if(inputArea) {
+            inputArea.onfocus = function() {
+                getSearchFile();
+            }
+        }
+    </script>
 
 
 <!-- Window Load-->

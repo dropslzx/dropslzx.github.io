@@ -234,7 +234,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#php中的序列化和反序列化"><span class="post-toc-number">1.</span> <span class="post-toc-text">php中的序列化和反序列化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解题过程"><span class="post-toc-number">2.</span> <span class="post-toc-text">解题过程</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">php中的序列化和反序列化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">2.</span> <span class="post-toc-text">解题过程</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -388,18 +388,32 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h4 id="php中的序列化和反序列化"><a href="#php中的序列化和反序列化" class="headerlink" title="php中的序列化和反序列化"></a>php中的序列化和反序列化</h4><p>把复杂的数据类型压缩到一个字符串中<br>serialize() 把变量和它们的值编码成文本形式<br>unserialize() 恢复原先变量<br><a id="more"></a><br>eg：</p>
-<pre><code>$m = array(&apos;Moe&apos;,&apos;Larry&apos;,&apos;Curly&apos;);
+        <h4>php中的序列化和反序列化</h4>
+<p>把复杂的数据类型压缩到一个字符串中
+serialize() 把变量和它们的值编码成文本形式
+unserialize() 恢复原先变量
+&lt;!--more--&gt;
+eg：</p>
+<pre><code>$m = array('Moe','Larry','Curly');
 $n = serialize($m);
 print_r($n);echo &quot;&lt;br /&gt;&quot;;
 print_r(unserialize($n));
-</code></pre><p>结果：a:3:{i:0;s:3:”Moe”;i:1;s:5:”Larry”;i:2;s:5:”Curly”;}<br>Array ( [0] =&gt; Moe [1] =&gt; Larry [2] =&gt; Curly )</p>
-<h4 id="解题过程"><a href="#解题过程" class="headerlink" title="解题过程"></a>解题过程</h4><p><strong>1、</strong>地址:<a href="http://115.28.150.176/php1/index.php" target="_blank" rel="external">http://115.28.150.176/php1/index.php</a></p>
-<p><strong>2、</strong>代码<br><img src="http://obh16g4rw.bkt.clouddn.com/6.png" alt=""></p>
-<p><strong>3、</strong>解释代码</p>
-<p><img src="http://obh16g4rw.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160830101943.png" alt=""><br>先定义一个类just4fun，类里面有两个成员enter和secret；判断是否存在通过GET提交的pass变量，再判断提交的语句中是否有’\’，存在就去掉’\’。<br><img src="http://obh16g4rw.bkt.clouddn.com/23.png" alt=""><br>将$pass反序列化然后赋值给$o，后面就是判断$o-&gt;secret和$o-&gt;enter是否相等，相等就输出flag</p>
-<p><strong>4、</strong>构造Poc</p>
-<p>由于php支持引用赋值，它意味着两个变量指向了同一个数据，没有拷贝任何东西<br><img src="http://obh16g4rw.bkt.clouddn.com/jj.png" alt=""><br>结果pass=O:8:”just4fun”:2:{s:5:”enter”;N;s:6:”secret”;R:2;}</p>
+</code></pre>
+<p>结果：a:3:{i:0;s:3:&quot;Moe&quot;;i:1;s:5:&quot;Larry&quot;;i:2;s:5:&quot;Curly&quot;;}
+Array ( [0] =&gt; Moe [1] =&gt; Larry [2] =&gt; Curly )</p>
+<h4>解题过程</h4>
+<p>**1、**地址:http://115.28.150.176/php1/index.php</p>
+<p>**2、**代码
+<img src="http://obh16g4rw.bkt.clouddn.com/6.png" alt=""></p>
+<p>**3、**解释代码</p>
+<p><img src="http://obh16g4rw.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160830101943.png" alt="">
+先定义一个类just4fun，类里面有两个成员enter和secret；判断是否存在通过GET提交的pass变量，再判断提交的语句中是否有''，存在就去掉''。
+<img src="http://obh16g4rw.bkt.clouddn.com/23.png" alt="">
+将$pass反序列化然后赋值给$o，后面就是判断$o-&gt;secret和$o-&gt;enter是否相等，相等就输出flag</p>
+<p>**4、**构造Poc</p>
+<p>由于php支持引用赋值，它意味着两个变量指向了同一个数据，没有拷贝任何东西
+<img src="http://obh16g4rw.bkt.clouddn.com/jj.png" alt="">
+结果pass=O:8:&quot;just4fun&quot;:2:{s:5:&quot;enter&quot;;N;s:6:&quot;secret&quot;;R:2;}</p>
 
     
 
@@ -570,7 +584,7 @@ print_r(unserialize($n));
         <li>
             <a href="/links" title="友情链接">
                 
-                    <i class="material-icons sidebar-material-icons">favourite</i>
+                    <i class="material-icons sidebar-material-icons">favorite</i>
                 
                 友情链接
             </a>
@@ -780,6 +794,106 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 <!-- Local Search-->
+
+    <script>
+    var searchFunc = function(path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: 'xml',
+            success: function( xmlResponse ) {
+                // get the contents from search data
+                var datas = $( 'entry', xmlResponse ).map(function() {
+                    return {
+                        title: $( 'title', this ).text(),
+                        content: $('content',this).text(),
+                        url: $( 'url' , this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function() {
+                    var str='<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = '';
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function(data) {
+                        var isMatch = true;
+                        var content_index = [];
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g,'').toLowerCase();
+                        var data_url = data.url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if(data_title !== '' && data_content !== '') {
+                            keywords.forEach(function(keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if( index_title < 0 && index_content < 0 ) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += '<li><a href="'+ data_url +'" class="search-result-title" target="_blank">'+ data_title;
+                            var content = data.content.trim().replace(/<[^>]+>/g, '');
+                            if (first_occur >= 0) {
+                                // cut out characters
+                                var start = first_occur - 6;
+                                var end = first_occur + 6;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 10;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, 'gi');
+                                    match_content = match_content.replace(regS, '<em class="search-keyword">'+keyword+'</em>');
+                                })
+                                str += '<p class="search-result">' + match_content + '...</p>' +'</a>';
+                            }
+                        }
+                    });
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    }
+</script>
+
+
+    <script>
+        var inputArea = document.querySelector('#search');
+        var getSearchFile = function() {
+            var path = 'search.xml';
+            searchFunc(path, 'search', 'local-search-result');
+        }
+
+        if(inputArea) {
+            inputArea.onfocus = function() {
+                getSearchFile();
+            }
+        }
+    </script>
 
 
 <!-- Window Load-->

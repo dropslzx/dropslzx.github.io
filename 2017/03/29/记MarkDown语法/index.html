@@ -389,71 +389,31 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <ol>
-<li>
-<p>标题设置（让字体变大，和word的标题意思一样）
-在Markdown当中设置标题，有两种方式：
-第一种：通过在文字下方添加“=”和“-”，他们分别表示一级标题和二级标题。
-第二种：在文字开头加上 “#”，通过“#”数量表示几级标题。（一共只有1~6级标题，1级标题字体最大）
-&lt;!--more--&gt;</p>
+<li><p>标题设置（让字体变大，和word的标题意思一样）<br>在Markdown当中设置标题，有两种方式：<br>第一种：通过在文字下方添加“=”和“-”，他们分别表示一级标题和二级标题。<br>第二种：在文字开头加上 “#”，通过“#”数量表示几级标题。（一共只有1~6级标题，1级标题字体最大）</p>
+<a id="more"></a>
 </li>
-<li>
-<p>块注释（blockquote）
-通过在文字开头添加“&gt;”表示块注释。（当&gt;和文字之间添加五个blank时，块注释的文字会有变化。）
-这里变成了注释</p>
+<li><p>块注释（blockquote）<br>通过在文字开头添加“&gt;”表示块注释。（当&gt;和文字之间添加五个blank时，块注释的文字会有变化。）<br> 这里变成了注释</p>
 </li>
-<li>
-<p>斜体
-将需要设置为斜体的文字两端使用1个“*”或者“_”夹起来
-<em>这里面是斜体</em></p>
-</li>
-<li>
-<p>粗体
-将需要设置为斜体的文字两端使用2个“*”或者“_”夹起来
-<strong>粗体来了</strong></p>
-</li>
-<li>
-<p>无序列表
-在文字开头添加(<em>, +, and -)实现无序列表。但是要注意在(</em>, +, and -)和文字之间需要添加空格。（建议：一个文档中只是用一种无序列表的表示方式）</p>
-</li>
-<li>
-<p>有序列表
-使用数字后面跟上句号。（还要有空格）</p>
-</li>
-<li>
-<p>链接（Links）
-Markdown中有两种方式，实现链接，分别为内联方式和引用方式。
-内联方式：This is an <a href="http://example.com/" target="_blank" rel="external">example link</a>.<br>
-引用方式：
-I get 10 times more traffic from <a href="http://google.com/" title="Google" target="_blank" rel="external">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search" target="_blank" rel="external">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search" target="_blank" rel="external">MSN</a>.</p>
-</li>
-<li>
-<p>图片（Images）
-图片的处理方式和链接的处理方式，非常的类似。</p>
+<li>斜体<br>将需要设置为斜体的文字两端使用1个“*”或者“<em>”夹起来
+ </em>这里面是斜体_</li>
+<li>粗体<br>将需要设置为斜体的文字两端使用2个“*”或者“_”夹起来<br><strong>粗体来了</strong></li>
+<li>无序列表<br>在文字开头添加(<em>, +, and -)实现无序列表。但是要注意在(</em>, +, and -)和文字之间需要添加空格。（建议：一个文档中只是用一种无序列表的表示方式）</li>
+<li>有序列表<br>使用数字后面跟上句号。（还要有空格）</li>
+<li>链接（Links）<br>Markdown中有两种方式，实现链接，分别为内联方式和引用方式。<br>内联方式：This is an <a href="http://example.com/" target="_blank" rel="external">example link</a>.<br>引用方式：<br>I get 10 times more traffic from <a href="http://google.com/" title="Google" target="_blank" rel="external">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search" target="_blank" rel="external">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search" target="_blank" rel="external">MSN</a>.  </li>
+</ol>
+<ol>
+<li><p>图片（Images）<br>图片的处理方式和链接的处理方式，非常的类似。</p>
+<p>引用方式：<br><img src="http://obh16g4rw.bkt.clouddn.com/author.jpg" alt=""> </p>
 </li>
 </ol>
-<p>引用方式：
-<img src="http://obh16g4rw.bkt.clouddn.com/author.jpg" alt=""></p>
-<ol start="9">
-<li>
-<p>代码（HTML中所谓的Code）
-实现方式有两种：
-第一种：简单文字出现一个代码框。使用<code>&lt;blockquote&gt;</code>。（<code>不是单引号而是左上角的ESC下面~中的</code>）
-第二种：大片文字需要实现代码框。使用Tab和四个空格。</p>
-</li>
-<li>
-<p>脚注（footnote）
-实现方式如下：
-hello[^hello]
-[^hello]: hi</p>
-</li>
-<li>
-<p>下划线
-在空白行下方添加三条“-”横线。（前面讲过在文字下方添加“-”，实现的2级标题）
-References：</p>
-</li>
+<ol>
+<li>代码（HTML中所谓的Code）<br>实现方式有两种：<br>第一种：简单文字出现一个代码框。使用<code>&lt;blockquote&gt;</code>。（<code>不是单引号而是左上角的ESC下面~中的</code>）<br>第二种：大片文字需要实现代码框。使用Tab和四个空格。</li>
+<li>脚注（footnote）<br>实现方式如下：<br>hello<a href="hi">^hello</a> </li>
 </ol>
-<p><a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="external">MarkDown官方网站</a>
-<a href="https://stackedit.io/" target="_blank" rel="external">推荐一款在线的Markdown编辑器</a></p>
+<ol>
+<li>下划线<br>在空白行下方添加三条“-”横线。（前面讲过在文字下方添加“-”，实现的2级标题）<br>References： </li>
+</ol>
+<p><a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="external">MarkDown官方网站</a><br><a href="https://stackedit.io/" target="_blank" rel="external">推荐一款在线的Markdown编辑器</a></p>
 
     
 

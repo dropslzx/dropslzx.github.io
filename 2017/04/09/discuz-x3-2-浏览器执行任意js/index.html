@@ -234,7 +234,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#0x00-说说xss"><span class="post-toc-number">1.</span> <span class="post-toc-text">0x00 说说xss</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#0x01-Discuz论坛x3-2版本xss分析"><span class="post-toc-number">2.</span> <span class="post-toc-text">0x01 Discuz论坛x3.2版本xss分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#0x02-xss弹窗分析"><span class="post-toc-number">3.</span> <span class="post-toc-text">0x02 xss弹窗分析</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">0x00 说说xss</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">2.</span> <span class="post-toc-text">0x01 Discuz论坛x3.2版本xss分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">3.</span> <span class="post-toc-text">0x02 xss弹窗分析</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -388,18 +388,21 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h3 id="0x00-说说xss"><a href="#0x00-说说xss" class="headerlink" title="0x00 说说xss"></a>0x00 说说xss</h3><p>跨站脚本（Cross-site scripting，通常简称为XSS）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。它允许恶意用户将代码注入到网页上，其他用户在观看网页时就会受到影响。这类攻击通常包含了HTML以及用户端脚本语言。</p>
+        <h3>0x00 说说xss</h3>
+<p>跨站脚本（Cross-site scripting，通常简称为XSS）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。它允许恶意用户将代码注入到网页上，其他用户在观看网页时就会受到影响。这类攻击通常包含了HTML以及用户端脚本语言。</p>
 <p>XSS攻击通常指的是通过利用网页开发时留下的漏洞，通过巧妙的方法注入恶意指令代码到网页，使用户加载并执行攻击者恶意制造的网页程序。这些恶意网页程序通常是JavaScript，但实际上也可以包括Java，VBScript，ActiveX，Flash或者甚至是普通的HTML。攻击成功后，攻击者可能得到更高的权限（如执行一些操作）、私密网页内容、会话和cookie等各种内容。</p>
-<h3 id="0x01-Discuz论坛x3-2版本xss分析"><a href="#0x01-Discuz论坛x3-2版本xss分析" class="headerlink" title="0x01 Discuz论坛x3.2版本xss分析"></a>0x01 Discuz论坛x3.2版本xss分析</h3><p>Discuz 在用户评论处设置了帖子管理员编辑评论的功能，由于前端 JS 代码处理不当导致了经过恶意构造的评论内容在经过交互后形成 XSS 。下面通过 payload 的调试过程来解释该漏洞的形成过程。</p>
+<h3>0x01 Discuz论坛x3.2版本xss分析</h3>
+<p>Discuz 在用户评论处设置了帖子管理员编辑评论的功能，由于前端 JS 代码处理不当导致了经过恶意构造的评论内容在经过交互后形成 XSS 。下面通过 payload 的调试过程来解释该漏洞的形成过程。</p>
 <p><strong>JS原生去ELEMENT中HTML内容的方法，会将服务端转义过的单双引号实体编码进行反转。</strong></p>
 <p>payload:<strong>[align=”onmouseover=”alert(1)]</strong></p>
 <p>这是一种bbcode语言,多用于bbs，blog中。浏览器不会识别这种语言，只能转换成html实体语言，浏览器才会识别</p>
-<h3 id="0x02-xss弹窗分析"><a href="#0x02-xss弹窗分析" class="headerlink" title="0x02 xss弹窗分析"></a>0x02 xss弹窗分析</h3><ul>
+<h3>0x02 xss弹窗分析</h3>
+<ul>
 <li>forum.php?mod=viewthread&amp;tid=1&amp;extra=page%3D1</li>
 </ul>
-<p><img src="http://obh16g4rw.bkt.clouddn.com/78.png" alt=""> </p>
+<p><img src="http://obh16g4rw.bkt.clouddn.com/78.png" alt=""></p>
 <p>查看源码，发现已被实体编码，不会弹框。</p>
-<p><img src="http://obh16g4rw.bkt.clouddn.com/79.png" alt=""> </p>
+<p><img src="http://obh16g4rw.bkt.clouddn.com/79.png" alt=""></p>
 <p>当管理或版主对用户的评论点击管理时，前端JS代码就开始处理，弹出一个编辑框供管理或版主操作。在JS代码处理的过程中，首先获取用户评论的内容，代码位于当前页面中</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/80.png" alt=""></p>
 <p>而$()  函数是经过封装过的，原型位于 /static/js/common.js 中：</p>
@@ -410,13 +413,17 @@
 <p>使用了原生的 document.getElementById()  函数来获取页面中的对应对象，此处获取的是标有id=”e_textarea”  的对象，其对应的值为用户评论的内容。由于JS原生函数的原因，被服务器后端转义的引号会被重新是渲染回引号：</p>
 <p>然后流程继续执行，wysiwyg在前面判断浏览器时已经赋了值</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/82.png" alt=""></p>
-<p>在前面wysiwyg变量的值为1，所以会执行如下代码<br>newEditor(1, bbcode2html(textobj.value))</p>
-<p>其中textobj.value的值为： 2（经过document.getElementById()获取的对象解析了实体编码）<br>在进行 newEditor() 时，会对传入的内容使用函数bbcode2html()进行编码过滤，其函数原型位于/static/js/bbcode.js，</p>
+<p>在前面wysiwyg变量的值为1，所以会执行如下代码
+newEditor(1, bbcode2html(textobj.value))</p>
+<p>其中textobj.value的值为： 2（经过document.getElementById()获取的对象解析了实体编码）
+在进行 newEditor() 时，会对传入的内容使用函数bbcode2html()进行编码过滤，其函数原型位于/static/js/bbcode.js，</p>
 <ul>
 <li>/static/js/bbcode.js</li>
 </ul>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/83.png" alt=""></p>
-<p>程序匹配其支持的shortcode然后正则替换为相应的HTML代码，<br>str = str.replace(/[email=(.<a href=".*?">^[]*)\</a>[\/email]/ig, ‘$2’);<br>经过正则匹配替换后，str的值会变为： 2</p>
+<p>程序匹配其支持的shortcode然后正则替换为相应的HTML代码，
+str = str.replace(/[email=(.[^[]<em>)](.</em>?)[/email]/ig, '$2');
+经过正则匹配替换后，str的值会变为： 2</p>
 <p><img src="http://obh16g4rw.bkt.clouddn.com/84.png" alt=""></p>
 <ul>
 <li>static/js/editor.js</li>
@@ -555,7 +562,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -609,7 +616,7 @@
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">17</span>
+                <span class="sidebar-badge">18</span>
             </a>
         </li>
         

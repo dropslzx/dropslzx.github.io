@@ -237,11 +237,10 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            常用知识二
-0x00 端口转发
-1、windows下使用LCX
+            常用知识二0x00 端口转发1、windows下使用LCX
 
-被控计算机 lcx.e...
+被控计算机 lcx.exe -slave 本机ip 1234 127.0.0.1 3389
+本机  lcx -listen 1234 3389
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -298,8 +297,7 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            0x00 序
-前几天实训做了个端口扫描，也没怎么写过长的脚本，真好有个机会自己练习一下，反正也没啥，就当玩了，都怪自己编程太差，犯...
+            0x00 ...
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -356,8 +354,7 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            0x00 说说xss
-跨站脚本（Cross-site scripting，通常简称为XSS）是一种网站应用程序的安全漏洞攻击，是代...
+            
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -414,8 +411,7 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            0x00 端口扫描
-端口扫描是指客户端向一定范围的服务器端口发送对应请求，以此确认可使用的端口。虽然其本身并不是恶意的网络活动，但...
+            0x00 端口扫描端口扫描是指客户端向一定范围的服务器端口发送对应请求，以此确认可使用的端口。虽然其本身并不是恶意的网络活动，但也是网络攻击者探测目标主机服务，以利用该服务的已知漏洞的重要手段。端口扫描的主要用途仍然只是确认远程机器某个服务的可用性。扫描多个主机以获取特定的某个端口被称为端口清扫（Portsweep），以此获取特定的服务。例如，基于SQL服务的计算机蠕虫就会清扫大量主机的同一端口以在 1433 端口上建立TCP连接。
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -474,7 +470,8 @@
         
             签到题
 查看源码就可得到
-md5 collision...
+md5 collision
+Poc:a=240610708
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -532,10 +529,7 @@ md5 collision...
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
             
-
-标题设置（让字体变大，和word的标题意思一样）
-在Markdown当中设置标题，有两种方式：
-第一种：通过在文字下方添加“=”...
+标题设置（让字体变大，和word的标题意思一样）在Markdown当中设置标题，有两种方式：第一种：通过在文字下方添加“=”和“-”，他们分别表示一级标题和二级标题。第二种：在文字开头加上 “#”，通过“#”数量表示几级标题。（一共只有1~6级标题，1级标题字体最大）
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -592,10 +586,7 @@ md5 collision...
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            php中的序列化和反序列化
-把复杂的数据类型压缩到一个字符串中
-serialize() 把变量和它们的值编码成文本形式
-unser...
+            php中的序列化和反序列化把复杂的数据类型压缩到一个字符串中serialize() 把变量和它们的值编码成文本形式unserialize() 恢复原先变量
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -653,8 +644,6 @@ unser...
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
             时光匆匆，转眼一个暑假就已经过去了。有意义的假期在于总结，有不少的收获，当然也有不足
-&lt;!--more--&gt;
-
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -711,9 +700,19 @@ unser...
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            PNG文件结构分析
-png的文件结构
-对于一个PNG文件来说，其文件头总是由位固定的字节来描述的：
+            PNG文件结构分析png的文件结构对于一个PNG文件来说，其文件头总是由位固定的字节来描述的：
+ | 十进制数    | 十六进制数|    
+| --------    | -----:   | 
+|    137     | 89       |  
+|  80        | 50       |  
+| 71         | 4E       |  
+| 13         | 47       |  
+| 10         | 0D       |  
+| 26         | 0A       |  
+| 10         | 1A       |  
+其中第一个字节0x89超出了ASCII字符的范围，这是为了避免某些软件将PNG文件当做文本文件来处理。文件中剩余的部分由3个以上的PNG的数据块（Chunk）按照特定的顺序组成，因此，一个标准的PNG文件结构应该如下：
+
+PNG文件标志|PNG数据块|……|PNG数据块
 
         
         &nbsp;&nbsp;&nbsp;
@@ -771,8 +770,14 @@ png的文件结构
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            pwnhub--胖哈勃外传第一集wp
-首先看看网站。在首页的源码里面有这样一部分很奇怪
+            pwnhub–胖哈勃外传第一集wp首先看看网站。在首页的源码里面有这样一部分很奇怪
+1&lt;script src=&quot;http://54.223.231.220/image.php?file=http://127.0.0.1:8888/test.png&amp;path=logo.jpg&quot;&gt;&lt;/script&gt;
+访问下，说是logo.jpg更新成功。
+试了几下，发现以下几点
+
+1、首先这个链接是访问file指向的链接，并将返回的内容写到path指向的文件
+2、file指向的连接必须是127.0.0.1的，不太好绕过
+3、path可以是.PHP后缀的文件，但是过滤的尖括号，没有办法二次访问直接webshell。
 
         
         &nbsp;&nbsp;&nbsp;
